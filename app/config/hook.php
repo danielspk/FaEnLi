@@ -2,8 +2,9 @@
 
 $app = DMS\Tornado\Tornado::getInstance();
 
-$app->hook('init', function () {
+$app->hook('init', function () use ($app) {
 
+	// se comprime el contenido del buffer
     ob_start(function ($pBuffer, $pPhase) {
         $buffer = mb_output_handler($pBuffer, $pPhase);
         $buffer = ob_gzhandler($pBuffer, $pPhase);
@@ -11,12 +12,14 @@ $app->hook('init', function () {
         return $buffer;
     });
 
-	setlocale(LC_TIME, 'spanish');
-	date_default_timezone_set('America/Argentina/Buenos_Aires');
+	// se setea la configuración de zona y hora
+	setlocale(LC_TIME, $app->config('locale'));
+	date_default_timezone_set($app->config('timezone'));
 	
 });
 
 $app->hook('end', function () {
+	// se vuelca el buffer
     ob_end_flush();
 });
 

@@ -6,6 +6,9 @@ define('URLFRIENDLY', 'http://local-dsp.web/faenli/');
 /* Variables de Configuración */
 $app = DMS\Tornado\Tornado::getInstance();
 
+$app->config('locale', 'spanish');
+$app->config('timezone', 'America/Argentina/Buenos_Aires');
+
 $app->config('db', array(
 	'motor'		=> 'MYSQL',
 	'host'      => 'localhost',
