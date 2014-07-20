@@ -1,0 +1,647 @@
+/* -------------------------------------------------------------------------- *\
+   $CONTENIDO
+\* -------------------------------------------------------------------------- */
+/**
+ * RESET.......................Limpia los valores iniciales del navegador
+ * CAJAS.......................Establece el comportamientos de cajas
+ * FONT-FACE...................Importa las fuentes que utilizará el sítio
+ * ELEMENTOS-GLOBALES..........Establece los estilos para los elementos generales del dom
+ * VISTAS......................Establece estilos para las vistas/páginas de la aplicación
+ *       LOGIN-USUARIO
+ *       RECUPERO-USUARIO
+ *       REGISTRO-USUARIO
+ *       TERMINOS-USO
+ *       PANEL-FACTURAS
+ * CLASES-COMUNES..............Establece estilos comunes
+ * EFECTOS.....................Establece estilos para efectos de animación
+ * BOTONES.....................Establece estilos para botones
+ * FORMULARIOS.................Establece estilos para formularios
+ * TABLAS......................Establece estilos para tablas de datos
+ * PAGINADOS...................Establece estilos para enlaces de paginado de tablas
+ * NOTIFICACIONES..............Establece estilos para avisos de notificaciones
+ */
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $RESET
+\* -------------------------------------------------------------------------- */
+/**
+ * Eric Meyer's Reset CSS v2.0 - http://cssreset.com
+ */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,
+abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,
+strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,
+figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,
+time,mark,audio,video{
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+	display: block
+}
+body{
+	line-height: 1
+}
+ol,ul{
+	list-style: none
+}
+blockquote,q{
+	quotes: none
+}
+blockquote:before,blockquote:after,q:before,q:after{
+	content: none
+}
+table{
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $CAJAS
+\* -------------------------------------------------------------------------- */
+*,
+*:before,
+*:after {
+	position: relative;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $FONT-FACE
+\* -------------------------------------------------------------------------- */
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 300;
+	src:local('Source Sans Pro Light'), 
+		local('SourceSansPro-Light'), 
+		url('fonts/SourceSansProLight.woff') 
+		format('woff');
+}
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 400;
+	src:local('Source Sans Pro'), 
+		local('SourceSansPro-Regular'), 
+		url('fonts/SourceSansPro.woff') 
+		format('woff');
+}
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 600;
+	src:local('Source Sans Pro Semibold'), 
+		local('SourceSansPro-Semibold'), 
+		url('fonts/SourceSansProSemibold.woff') 
+		format('woff');
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $ELEMENTOS-GLOBALES
+\* -------------------------------------------------------------------------- */
+body {
+	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+	line-height: 1.428571429;
+	font-size: 15px;
+	font-weight: 400;
+	color: #4d4d4d;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+h1 {
+	font-size: 24px;
+}
+h2 {
+	font-size: 22px;
+}
+h3 {
+	font-size: 20px
+}
+h4 {
+	font-size: 18px;
+}
+h5 {
+	font-size: 16px;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $VISTAS
+\* -------------------------------------------------------------------------- */
+/**
+ * $LOGIN-USUARIO
+ * $RECUPERO-USUARIO
+ * $REGISTRO-USUARIO
+ */
+.bgAcceso {
+	background: url('../img/bg.png') repeat;
+}
+.pnlFaEnLi {
+	position: absolute;
+	top: 65px;
+	left: 50%;
+	width: 472px;
+	height: 356px;
+	margin-left: -580px;
+	background: url('../img/slogan.png') no-repeat;
+	border-width: 1px;
+	border-style: solid;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-radius: 1px;
+}
+.pnlFaEnLi:before,
+.pnlFaEnLi:after {
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	border-width: 1px;
+	border-style: solid;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-radius: 1px;
+}
+.pnlFaEnLi:before{
+	top: 0;
+	z-index: -1;
+	-webkit-transform: rotate(-3deg);
+	   -moz-transform: rotate(-3deg);
+	    -ms-transform: rotate(-3deg);
+		 -o-transform: rotate(-3deg);
+	        transform: rotate(-3deg);
+}
+.pnlFaEnLi:after{
+	top: 0;
+	z-index: -2;
+	-webkit-transform: rotate(2deg);
+	   -moz-transform: rotate(2deg);
+	    -ms-transform: rotate(2deg);
+	     -o-transform: rotate(2deg);
+	        transform: rotate(2deg);
+}
+.txtFaEnLi{
+	position: absolute;
+	top: 190px;
+	left: 26px;
+	width: 235px;
+	font-size: 25px;
+	font-weight: 600;
+	font-style: italic;
+}
+.pnlAcceso {
+	position: absolute;
+	top: 65px;
+	left: 50%;
+	width: 400px;
+	margin-left: 80px;
+	margin-bottom: 30px;
+	border-width: 1px;
+	border-style: solid;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-radius: 3px;
+}
+.pnlAcceso:before,
+.pnlAcceso:after {
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	border-width: 1px;
+	border-style: solid;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-radius: 1px;
+}
+.pnlAcceso:before{
+	top: 0;
+	z-index: -1;
+	-webkit-transform: rotate(-3deg);
+	   -moz-transform: rotate(-3deg);
+	    -ms-transform: rotate(-3deg);
+	     -o-transform: rotate(-3deg);
+	        transform: rotate(-3deg);
+}
+.pnlAcceso:after{
+	top: 0;
+	z-index: -2;
+	-webkit-transform: rotate(2deg);
+	   -moz-transform: rotate(2deg);
+	    -ms-transform: rotate(2deg);
+	     -o-transform: rotate(2deg);
+	        transform: rotate(2deg);
+}
+.pnlAcceso .logoAcceso {
+	text-align: center;
+	margin: 30px 0;
+}
+.pnlAcceso .logoAcceso img {
+	max-height: 75px;
+}
+.pnlAcceso .frmAcceso {
+	border-top-width: 2px;
+	border-top-style: solid;
+}
+.pnlAcceso .frmAcceso .frmAccesoSup {
+	padding: 20px;
+}
+.pnlAcceso .frmAcceso .frmAccesoSup h3{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.pnlAcceso .frmAcceso .frmAccesoSup h4{
+	text-align: center;
+	margin-bottom: 24px;
+}
+.pnlAcceso .frmAcceso .frmAccesoInf {
+	padding: 20px;
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+.powerBy {
+	position: fixed;
+	right: 10px;
+	bottom: 5px;
+}
+.powerBy a {
+	font-weight: 300;
+}
+.powerBy a:hover {
+	text-decoration: none;
+}
+
+
+
+/**
+ * $TERMINOS-USO
+ */
+.licencia-de-uso{
+	width: 700px;
+	margin: 50px auto;
+	padding:30px;
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px dashed #ccc;
+}
+.licencia-de-uso header{
+	text-align: center;
+}
+.licencia-de-uso h1{
+	font-size: 30px;
+	margin: 20px 0;
+	text-align: center;
+}
+.licencia-de-uso h2{
+	font-size: 20px;
+	margin-top: 15px;
+}
+.licencia-de-uso p + p{
+	margin-top: 7px;
+}
+.licencia-de-uso footer{
+	margin-top: 20px;
+	text-align: center;
+}
+
+
+
+/**
+ * $PANEL-FACTURAS
+ */
+.bgPanel {}
+.pnlHeader{
+	background-color: #313338;
+	border-bottom: 1px solid #999;
+	height: 40px;
+}
+.pnlHeader .txtUser{
+	float: left;
+	margin: 7px 0 0 25px;
+	padding: 4px 0 0 32px;
+	height: 26px;
+	color: #b2b2b2;
+	font-size: 13px;
+	background: url('../img/user.png') no-repeat left center;
+}
+.pnlHeader .btnLogout{
+	float: right;
+	padding: 8px 10px 0 0;
+}
+.pnlHeader .btnLogout i{
+	padding-left: 8px;
+}
+.pnlHeader .btnLogout a{
+	color: #fff;
+}
+.pnlHeader .btnLogout a:hover{
+	color: #c6c8cb;
+	text-decoration: none;
+}
+.pnlLogo{
+	margin: 20px 0 15px 0;
+	text-align: center;
+}
+.pnlLogo img{
+	height: 45px;
+}
+.pnlFacturas{
+	margin: 0px 20px 20px 20px;
+	min-height: 500px;
+	background-color: #fff;
+	border: 1px solid #d2d3d6;
+	border-radius: 1px;
+}
+.pnlFacturas .pnlFacturasSup{
+	background-color: #edeef0;
+	border-bottom: 1px solid #d2d3d6;
+	font-size: 10px;
+}
+.pnlFacturas .pnlFacturasSup h4{
+	padding: 7px;
+}
+.pnlFacturas .pnlFacturasInf{
+	margin: 20px;
+}
+.pnlFacturas .pnlFacturasInf table.grillaDatos tbody tr td img{
+	width: 30px;
+}
+.pnlFacturas .pnlFacturasInf .pagFacturas{
+	margin: 20px 0;
+}
+.pnlFacturas .pnlFacturasInf .pagFacturas .paginado{
+	max-width: 50%;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $CLASES-COMUNES
+\* -------------------------------------------------------------------------- */
+.oculto {
+	display: none;
+}
+.visible {
+	display: initial;
+}
+.centrado {
+	text-align: center !Important;
+}
+.flotar-izquierda {
+	float: left;
+}
+.flotar-derecha {
+	float: right;
+}
+.flotar-clear:before,
+.flotar-clear:after {
+	content: " ";
+	display: table;
+}
+.flotar-clear:after {
+	clear: both;
+}
+.pad-top-10 {
+	padding-top: 10px;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $EFECTOS
+\* -------------------------------------------------------------------------- */
+.giro180{
+	-webkit-transition-duration: 0.8s;
+       -moz-transition-duration: 0.8s;
+         -o-transition-duration: 0.8s;
+            transition-duration: 0.8s;
+	-webkit-transition-property: -webkit-transform;
+       -moz-transition-property: -moz-transform;
+         -o-transition-property: -o-transform;
+            transition-property: transform;
+	overflow:hidden;
+}
+.giro180:hover{
+	-webkit-transform: rotate(180deg);
+       -moz-transform: rotate(180deg); 
+         -o-transform: rotate(1800deg);
+	        transform: rotate(180deg);
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $BOTONES
+\* -------------------------------------------------------------------------- */
+a.boton{
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 7px 15px;
+	font-weight: 600;
+}
+a.boton i{
+	display: inline-block;
+	padding-right: 8px;
+}
+a.boton:hover {
+	transition: 0.3s;
+	text-decoration: none;
+}
+a.boton-opaco {}
+a.boton-opaco:hover {}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $FORMULARIOS
+\* -------------------------------------------------------------------------- */
+.form-element{
+	display: table;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.form-element label{
+	display: table-cell;
+	width: 45px;
+	background-color: #edeef0;
+	border: 1px solid #d2d3d6;
+	border-radius: 1px;
+	border-right: none;
+	text-align: center;
+}
+.form-element input{
+	display: table-cell;
+	width: 100%;
+	height: 40px;
+	padding-left: 10px;
+	border: 1px solid #d2d3d6;
+	border-radius: 1px;
+	border-left-style: dotted;
+	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+	font-size: 15px;
+	color: #4d4d4d;
+}
+.form-element input:focus {
+	outline: none;
+	transition: 1.3s;
+}
+.imgCaptcha {
+	vertical-align: middle;
+}
+.icoRefresh {
+	vertical-align: middle;
+	margin-left: 20px;
+	font-size: 30px;
+	cursor: pointer;
+}
+.ajax-cargando:after{
+	top: 0;
+	z-index: 90;
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: #fff url('../img/ajax.gif') no-repeat center center;
+	opacity: 0.95;
+	/* ajustes de otros posibles after */
+	-webkit-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+	    -ms-transform: rotate(0deg);
+		 -o-transform: rotate(0deg);
+	        transform: rotate(0deg);
+	border: none;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $TABLAS
+\* -------------------------------------------------------------------------- */
+table.grillaDatos {
+	width: 100%;
+	border: 1px solid #e6e7e8;
+}
+table.grillaDatos thead tr th{
+	vertical-align: middle;
+	padding: 10px;
+	font-weight: 600;
+	text-align: left;
+	cursor: pointer;
+	border: 1px solid #e6e7e8;
+	border-bottom-width: 2px;
+}
+table.grillaDatos thead tr th.orden{
+	background: url('../img/th_orden.png') no-repeat center right;
+}
+table.grillaDatos thead tr th.ordenAsc{
+	background: url('../img/th_orden_asc.png') no-repeat center right;
+}
+table.grillaDatos thead tr th.ordenDesc{
+	background: url('../img/th_orden_desc.png') no-repeat center right;
+}
+table.grillaDatos thead tr th.noOrden{
+	background-image: none;
+	cursor: default;
+}
+table.grillaDatos tbody tr td{
+	vertical-align: middle;
+	padding: 10px;
+	border: 1px solid #e6e7e8;
+}
+table.grillaDatos tbody tr.trPar td {}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $PAGINADOS
+\* -------------------------------------------------------------------------- */
+.paginado a {
+	padding: 7px 13px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 1px;
+	font-size: 13px;
+}
+.paginado a:hover {
+	text-decoration: none;
+}
+.paginado a.pag-anterior i{
+	padding-right: 15px;
+}
+.paginado a.pag-siguiente i{
+	padding-left: 15px;
+}
+.paginado a.pag-activo,
+.paginado a.pag-activo:hover {
+	cursor: default;
+}
+.paginado a.pag-desactivado {
+	cursor: not-allowed;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $NOTIFICACIONES
+\* -------------------------------------------------------------------------- */
+.notif{
+	z-index: 99;
+	width: 400px;
+	position: fixed;
+	left: 50%;
+	margin-left: -200px;
+	padding: 7px 20px;
+	border: 2px solid #ccc;
+	border-radius: 7px;
+	border-top: none;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	text-align: center;
+	font-size: 16px;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+	font-weight: 600;
+}
+.notifOk{
+	background-color: #00cc33;
+	border-color: #009933;
+	color: #fff;
+}
+.notifAdv{
+	background-color: #ffe691;
+	border-color: #f6db7b;
+	color: #7d5912;
+}
+.notifErr{
+	background-color: #ff0033;
+	border-color: #cc0000;
+	color: #f9e8e8;
+}
+.notifErr a {
+	color: #f9e8e8;
+	text-decoration: underline;
+}
