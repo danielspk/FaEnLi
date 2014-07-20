@@ -16,3 +16,6 @@ $app->route('GET  /terminos-de-uso',	'publico|acceso|terminos');
 $app->route('/logout',					'publico|acceso|logout');
 $app->route('/panel',					'publico|comprobante|panel');
 $app->route('/comprobante/:alpha',		'publico|comprobante|descarga');
+
+$app->route('POST /api/token',			'api|token|getToken');
+
