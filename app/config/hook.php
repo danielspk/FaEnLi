@@ -24,8 +24,16 @@ $app->hook('end', function () {
 });
 
 $app->hook('404', function () {
-	// se carga la vista de error 404
-	require __DIR__ . '/../modules/publico/view/404.tpl.php';
+	
+	// se determina si se debe mostrar una vista html o json
+	$valida = new \DMS\Libs\Valida();
+	
+	if ($valida->esAjax()) {
+		echo 'Destino 404';
+	} else {
+		require __DIR__ . '/../modules/publico/view/404.tpl.php';
+	}
+	
 });
 
 $app->hook('error', function () use ($app) {
@@ -37,6 +45,13 @@ $app->hook('error', function () use ($app) {
 	// se guarda error en un archivo de log
 	error_log('#' . $hash . ":\n" . $app->error() . "\n\n", 3, __DIR__ . '/../log/log.log');
 	
-	// se carga la vista de error general
-	require __DIR__ . '/../modules/publico/view/error.tpl.php';
+	// se determina si se debe mostrar una vista html o json
+	$valida = new \DMS\Libs\Valida();
+	
+	if ($valida->esAjax()) {
+		echo 'Código: #' . $hash;
+	} else {
+		require __DIR__ . '/../modules/publico/view/error.tpl.php';
+	}
+
 });

@@ -34,7 +34,7 @@ $(document).ready(function(){
 	
 	$(document).ajaxError(function(ev, jqXHR, settings, message){
 		$('.ajax-cargando').removeClass('ajax-cargando');
-		showError("Error en su solicitud al servidor.<br />" + message);
+		showError("Error en su solicitud al servidor.<br />" + jqXHR.responseText);
 	});
 	
 });

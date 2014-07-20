@@ -42,8 +42,14 @@ class Valida {
 		);
 	}
 
-	public function email($pEmail) {
+	public function email($pEmail)
+	{
 		return filter_var($pEmail, FILTER_VALIDATE_EMAIL);
+	}
+	
+	public function esAjax()
+	{
+		return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
 	}
 	
 }

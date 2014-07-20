@@ -25,7 +25,7 @@ class Acceso extends \DMS\Tornado\Controller
 	
 	public function procesarLogin()
 	{
-	
+
 		$email = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
 		$password = filter_input(INPUT_POST, 'txtPassword', FILTER_SANITIZE_STRING);
 		$codigo = filter_input(INPUT_POST, 'txtCodigo', FILTER_SANITIZE_STRING);

@@ -1,0 +1,121 @@
+#201407201203263e_xHv:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720120812sT5Pd5:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720120922YaT_DU:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720120934H_SO0b:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720120957yBtfHB:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#2014072012112885qSDY:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720121152_3eb-2:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720121316CToaI1:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720121341PG2Eu4:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#201407201214015zWgIp:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720121448Y6R3sD:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php:28
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\acceso.php(28): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 28, Array)
+#1 [internal function]: app\modules\publico\controller\Acceso->procesarLogin()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'acceso', 'procesarLogin', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
