@@ -10,7 +10,6 @@ class Comprobante extends \DMS\Tornado\Controller
 	{
 		$this->_validaSesionExistente();
 		
-		
 		$this->loadModel('publico|comprobante');
 		
 		$comprobante = new modelo\Comprobante();
@@ -18,7 +17,12 @@ class Comprobante extends \DMS\Tornado\Controller
 		
 		$comprobantes = $comprobante->recuperarComprobantes();
 		
-		$vars = array('comprobantes' => $comprobantes);
+		$vars = array(
+			'nombre' => $_SESSION['usrNombre'],
+			'apellido' => $_SESSION['usrApellido'],
+			'email' => $_SESSION['usrEmail'],
+			'comprobantes' => $comprobantes
+		);
 		
 		$this->loadView('publico|panel', $vars);
 	}

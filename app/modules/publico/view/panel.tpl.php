@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<base href='<?=URLFRIENDLY?>' />
-	<title> Sus Facturas</title>
+	<title> Sus Comprobantes</title>
 	<link rel="shortcut icon" type="image/x-icon" href="./public/img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./public/css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="./public/css/estilos.css" media="all" />
@@ -13,7 +13,7 @@
 	
 	<div class="pnlHeader">
 		
-		<div class="txtUser">Daniel Spiridione &lt;daniel.spiridione@gmail.com&gt;</div>
+		<div class="txtUser"><?= $nombre . ' ' . $apellido . ' &lt;' . $email . '&gt;'; ?></div>
 		
 		<div class="btnLogout">
 			<a href="./logout">Cerrar Sesión<i class="fa fa-power-off"></i></a>
