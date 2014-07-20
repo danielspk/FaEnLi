@@ -2,29 +2,54 @@
 namespace app\modules\api\controller;
 
 use app\modules\api\model as modelo;
+use app\modules\api\controller as controlador;
 
-class Api extends \DMS\Tornado\Controller
+class Log extends \DMS\Tornado\Controller
 {
+	
+	private $_contToken;
+	private $_path;
+	
+	public function __construct()
+	{
+		$this->loadController('api|token');
+		
+		$this->_contToken = new controlador\Token();
+		$this->_path = __DIR__ . '/../../../log/log.log';
+	}
+	
+	public function borrarLogs()
+	{
+		if ($this->_contToken->validaCredenciales() === false) {
+			return;
+		}
+		
+		if (file_exists($this->_path)) {
+			
+			unlink($this->_path);
+		}
+		
+		echo json_encode(array('estado' => 'ok', 'detalle' => 'El contenido del archivo de logs fue correctamente eliminado'));
+	}
 	
 	public function getLogs()
 	{
-		$this->_validaSesionExistente();
+		if ($this->_contToken->validaCredenciales() === false) {
+			return;
+		}
 		
-		$this->loadModel('publico|comprobante');
+		// se recupera el contenido del archivo de logs
+		if (!file_exists($this->_path)) {
+			echo json_encode(array('estado' => 'vacio', 'descripcion' => 'No hay contenido de logs'));
+			return;
+		}
 		
-		$comprobante = new modelo\Comprobante();
-		$comprobante->setEmail($_SESSION['usrEmail']);
+		$contLog = file_get_contents($this->_path);
 		
-		$comprobantes = $comprobante->recuperarComprobantes();
+		$contLogReg = explode("\n\n", $contLog);
 		
-		$vars = array(
-			'nombre' => $_SESSION['usrNombre'],
-			'apellido' => $_SESSION['usrApellido'],
-			'email' => $_SESSION['usrEmail'],
-			'comprobantes' => $comprobantes
-		);
+		echo json_encode(array('estado' => 'ok', 'contenido' => $contLogReg));
 		
-		$this->loadView('publico|panel', $vars);
 	}
 	
 }

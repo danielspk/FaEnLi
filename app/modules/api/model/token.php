@@ -36,6 +36,21 @@ class Token
 		$this->_conex->desconectar();
 	}
 	
+	public function verVigencia()
+	{
+		$sql = 'SELECT COUNT(*) AS cantid FROM tokens WHERE estado = true AND token = :token AND vida >= ' . time();
+		
+		$db = $this->_conex->prepare($sql);
+		$db->bindParam(':token', $this->_token, \PDO::PARAM_STR);
+		$db->execute();
+	
+		$row = $db->fetchObject();
+		
+		$this->_conex->desconectar();
+		
+		return ($row->cantid == 1) ? true : false;
+	}
+	
 	/* Métodos privados */
 	public function _eliminarVencidos()
 	{

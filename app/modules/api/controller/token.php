@@ -37,7 +37,39 @@ class Token extends \DMS\Tornado\Controller
 		$token->registrar();
 		
 		// se devuelve el token generado
-		echo $tokenHash;
+		echo json_encode(array('token' => $tokenHash));
+		
+	}
+	
+	public function validaCredenciales()
+	{
+		
+		$tokenHash = filter_input(INPUT_POST, 'token', FILTER_SANITIZE_STRING);
+		$user = filter_input(INPUT_POST, 'user', FILTER_SANITIZE_STRING);
+		$pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
+		
+		// se determina si el token esta vigente
+		$this->loadModel('api|token');
+		
+		$token = new modelo\Token();
+		$token->setToken($tokenHash);
+		
+		if ($token->verVigencia() == false) {
+			echo json_encode(array('estado' => 'error', 'descripcion' => 'token no válido'));
+			return false;
+		}
+		
+		$credenciales = \DMS\Tornado\Tornado::getInstance()->config('api');
+
+		if (
+			password_verify($user, $credenciales['apiUser']) === false ||
+			password_verify($pass, $credenciales['apiPass']) === false
+		) {
+			echo json_encode(array('estado' => 'error', 'descripcion' => 'credenciales no válidas'));
+			return false;
+		}
+		
+		return true;
 		
 	}
 	
