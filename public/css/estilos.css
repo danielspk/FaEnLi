@@ -12,6 +12,8 @@
  *       REGISTRO-USUARIO
  *       TERMINOS-USO
  *       PANEL-FACTURAS
+ *       ERROR-404
+ *       ERROR-GENERAL
  * CLASES-COMUNES..............Establece estilos comunes
  * EFECTOS.....................Establece estilos para efectos de animación
  * BOTONES.....................Establece estilos para botones
@@ -114,6 +116,9 @@ table{
 /* -------------------------------------------------------------------------- *\
    $ELEMENTOS-GLOBALES
 \* -------------------------------------------------------------------------- */
+html, body{
+	height: 100%;
+}
 body {
 	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
 	line-height: 1.428571429;
@@ -393,6 +398,43 @@ h5 {
 }
 .pnlFacturas .pnlFacturasInf .pagFacturas .paginado{
 	max-width: 50%;
+}
+
+
+
+/**
+ * $ERROR-404
+ * $ERROR-GENERAL
+ */
+.err404, .errGeneral{
+	position: absolute;
+	width: 704px;
+	height: 450px;
+	top: 50%;
+	left: 50%;
+	margin-left: -352px;
+	margin-top: -270px;
+}
+.err404 a, .errGeneral a{
+	display: block;
+	padding: 10px;
+	/*background-color: #cc0000;*/
+	width: 250px;
+	margin: 25px auto 0 auto;
+	border-radius: 7px;
+	border: 2px solid #B60000;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
+	text-shadow: #B60000 2px 2px 2px;
+	background: #cc0000 url('../img/bgBoton.png');
+}
+.errGeneral span{
+	display: block;
+	text-align: center;
+	color: #B60000;
+	font-size: 17px;
 }
 
 

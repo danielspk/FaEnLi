@@ -11,6 +11,9 @@ $app->hook('init', function () {
         return $buffer;
     });
 
+	setlocale(LC_TIME, 'spanish');
+	date_default_timezone_set('America/Argentina/Buenos_Aires');
+	
 });
 
 $app->hook('end', function () {
@@ -18,11 +21,19 @@ $app->hook('end', function () {
 });
 
 $app->hook('404', function () {
-    echo 'Error 404<br />Página no encontrada<br />';
-    echo '<a href="index.php">Volver al inicio</a>';
+	// se carga la vista de error 404
+	require __DIR__ . '/../modules/publico/view/404.tpl.php';
 });
 
 $app->hook('error', function () use ($app) {
-    echo 'Error de Aplicación: <br />' . $app->error();
-    echo '<br /><a href="index.php">Volver al inicio</a>';
+	
+	// se genera un hash del error
+	$cripto = new \DMS\Libs\Cripto();
+	$hash = date('YmdHis') . $cripto->crearHash(6);
+	
+	// se guarda error en un archivo de log
+	error_log('#' . $hash . ":\n" . $app->error() . "\n\n", 3, __DIR__ . '/../log/log.log');
+	
+	// se carga la vista de error general
+	require __DIR__ . '/../modules/publico/view/error.tpl.php';
 });

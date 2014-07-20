@@ -1,0 +1,154 @@
+/* -------------------------------------------------------------------------- *\
+ * Extiende la hoja de estilos: ../estilos.css
+\* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- *\
+   $CONTENIDO
+\* -------------------------------------------------------------------------- */
+/**
+ * ELEMENTOS-GLOBALES..........Extiende los estilos del tema para los elementos generales del dom
+ * VISTAS......................Extiende los estilos del tema en las vistas/páginas de la aplicación
+ *       LOGIN-USUARIO
+ *       RECUPERO-USUARIO
+ *       REGISTRO-USUARIO
+ *       PANEL-FACTURAS
+ * BOTONES.....................Extiende los estilos del tema para los botones
+ * FORMULARIOS.................Extiende los estilos del tema para los formularios
+ * TABLAS......................Extiende los estilos del tema para las tablas de datos
+ * PAGINADOS...................Extiende los estilos del tema para los enlaces de paginado de tablas
+ */
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $ELEMENTOS-GLOBALES
+\* -------------------------------------------------------------------------- */
+a {
+	color: #612f85;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $VISTAS
+\* -------------------------------------------------------------------------- */
+/**
+ * $LOGIN-USUARIO
+ * RECUPERO-USUARIO
+ * REGISTRO-USUARIO
+ */
+.pnlFaEnLi {
+	background-color: #9755c6;
+	border-color: #d2d3d6;
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+.pnlFaEnLi:before,
+.pnlFaEnLi:after {
+	background-color: #9755c6;
+	border-color: #d2d3d6;
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+.txtFaEnLi {
+	color: #fff;
+}
+.pnlAcceso {
+	background-color: #fff;
+	border-color: #d2d3d6;
+	border-top-color: #7d3cac;
+	border-bottom-color: #7d3cac;
+}
+.pnlAcceso:before,
+.pnlAcceso:after {
+	background-color: #fff;
+	border-color: #d2d3d6;
+	border-top-color: #7d3cac;
+	border-bottom-color: #7d3cac;
+}
+.pnlAcceso .frmAcceso{
+	border-top-color: #8b43bf;
+}
+.pnlAcceso .frmAcceso .frmAccesoInf {
+	background-color: #f7f8fa;
+	border-top-color: #8b43bf;
+}
+.powerBy a {
+	color: #999;
+	text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
+}
+.powerBy a:hover{
+	color: #666;
+}
+
+
+
+/**
+ * $PANEL-FACTURAS
+ */
+.bgPanel{
+	background-color: #f7f8fa;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $BOTONES
+\* -------------------------------------------------------------------------- */
+a.boton {
+	color: #fff;
+	background-color: #6f3699;
+	border-color: #612f85;
+}
+a.boton:hover {
+	background-color: #8b43bf;
+}
+a.boton-opaco{
+	background-color: #d1d3d4;
+	border-color: #c6c8cb;
+	color: #333;
+}
+a.boton-opaco:hover{
+	background-color: #c6c8cb;
+}
+
+
+
+/* -------------------------------------------------------------------------- *\
+   $FORMULARIOS
+\* -------------------------------------------------------------------------- */
+.form-element input:focus {
+	background-color: #eef5f2;
+}
+.icoRefresh {
+	color: #6f3699;
+}
+
+
+/* -------------------------------------------------------------------------- *\
+   $TABLAS
+\* -------------------------------------------------------------------------- */
+table.grillaDatos tbody tr.trPar td {
+	background-color: #f7f8fa;
+}
+
+
+/* -------------------------------------------------------------------------- *\
+   $PAGINADOS
+\* -------------------------------------------------------------------------- */
+.paginado a {
+	border-color: #e6e7e8;
+}
+.paginado a:hover {
+	background-color: #e4d8f3;
+}
+.paginado a.pag-activo,
+.paginado a.pag-activo:hover {
+	color: #fff;
+	background-color: #7843bc;
+	border-color: #4c2a77;
+}
+.paginado a.pag-desactivado {
+	color: #aeafb1;
+	background-color: #fff;
+}
