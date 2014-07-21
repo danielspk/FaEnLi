@@ -13,8 +13,12 @@ class Comprobante extends \DMS\Tornado\Controller
 		$this->loadModel('publico|comprobante');
 		
 		$comprobante = new modelo\Comprobante();
-		$comprobante->setEmail($_SESSION['usrEmail']);
 		
+		if ($_SESSION['usrRoot'])
+			$comprobante->setEmail('ALL');
+		else
+			$comprobante->setEmail($_SESSION['usrEmail']);
+			
 		$comprobantes = $comprobante->recuperarComprobantes();
 		
 		$vars = array(
@@ -31,6 +35,22 @@ class Comprobante extends \DMS\Tornado\Controller
     {
 		
 		$this->_validaSesionExistente();
+		
+		// se validan permisos de descarga
+		if (!$_SESSION['usrRoot']) {
+			
+			$this->loadModel('publico|comprobante');
+
+			$modComprobante = new modelo\Comprobante();
+			$modComprobante->setEmail($_SESSION['usrEmail']);
+			$modComprobante->setArchivo($pPDF);
+			
+			if ($modComprobante->permisoDescarga() == false) {
+				header('Location: ' . URLFRIENDLY . 'panel');
+				exit();
+			}
+			
+		}
 		
 		$cripto = new \DMS\Libs\Cripto();
 		

@@ -62,6 +62,7 @@ class Acceso extends \DMS\Tornado\Controller
 		$_SESSION['usrNombre'] = $usrDatos->nombre;
 		$_SESSION['usrApellido'] = $usrDatos->apellido;
 		$_SESSION['usrEmail'] = $usrDatos->email;
+		$_SESSION['usrRoot'] = $usrDatos->root;
 		
 		$respuesta['estado'] = 'ok';
 		$respuesta['url'] = URLFRIENDLY . 'panel';
