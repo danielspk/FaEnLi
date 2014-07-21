@@ -315,6 +315,9 @@ h5 {
 .licencia-de-uso header{
 	text-align: center;
 }
+.licencia-de-uso header img{
+	max-width: 100%;
+}
 .licencia-de-uso h1{
 	font-size: 30px;
 	margin: 20px 0;

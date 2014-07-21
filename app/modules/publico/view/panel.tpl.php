@@ -22,7 +22,7 @@
 	</div>
 	
 	<div class="pnlLogo">
-		<img src="./public/img/logo_generic.png" alt="Su Logo Empresarial" />
+		<img src="./public/img/logo_company.png" alt="Su Logo Empresarial" />
 	</div>
 	
 	<div class="pnlFacturas">

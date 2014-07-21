@@ -181,7 +181,7 @@
 		<div class="pnlBotonesIns flotar-clear">
 			
 			<div class="flotar-derecha">
-				<a id="btnInstalar" href="#" data-ajax="./" class="boton"><i class="fa fa-lock"></i>Instalar</a>
+				<a id="btnInstalar" href="#" data-ajax="./" class="boton"><i class="fa fa-cubes"></i>Instalar</a>
 			</div>
 
 		</div>

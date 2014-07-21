@@ -13,7 +13,7 @@
 	<div class="licencia-de-uso">
 		
 		<header>
-			<img src="./public/img/logo_generic.png" alt="Su Logo Empresarial" />
+			<img src="./public/img/logo_company.png" alt="Su Logo Empresarial" />
 		</header>
 		
 		<div>
