@@ -7,7 +7,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="./public/img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./public/css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="./public/css/estilos.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="./public/css/themes/celeste.css" media="all" />
+	<?php $this->loadView('publico|includes/theme'); ?>
 </head>
 <body class="bgPanel">
 	

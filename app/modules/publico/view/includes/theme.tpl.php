@@ -1,0 +1,1 @@
+<link rel="stylesheet" type="text/css" href="./public/css/themes/<?=DMS\Tornado\Tornado::getInstance()->config('theme')?>.css" media="all" />

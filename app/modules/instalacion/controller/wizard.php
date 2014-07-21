@@ -55,6 +55,7 @@ class Wizard extends \DMS\Tornado\Controller
 		
 		// se reemplazan los valores del template por los del formulario de instalación
 		$confTemplate = str_replace('[[urlfriendly]]', $_POST['urlfriendly'], $confTemplate);
+		$confTemplate = str_replace('[[theme]]', $_POST['theme'], $confTemplate);
 		$confTemplate = str_replace('[[locale]]', $_POST['locale'], $confTemplate);
 		$confTemplate = str_replace('[[timezone]]', $_POST['timezone'], $confTemplate);
 		$confTemplate = str_replace('[[passCript]]', $_POST['passCript'], $confTemplate);

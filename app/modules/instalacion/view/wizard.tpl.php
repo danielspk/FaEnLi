@@ -37,7 +37,7 @@
 					<input type="password" name="root_pass" id="root_pass" placeholder="Clave" />
 				</div>
 				
-				<h3>URL del Sistema:</h3>
+				<h3>Aplicación:</h3>
 				
 				<div class="form-element">
 					<label class="conTexto" for="urlfriendly"><i class="fa fa-cloud"></i>URL:</label>
@@ -52,6 +52,16 @@
 					</select>
 				</div>
 
+				<div class="form-element">
+					<label class="conTexto" for="theme"><i class="fa fa-thumbs-up"></i>Theme:</label>
+					<select name="theme" id="theme">
+						<option value="celeste">celeste</option>
+						<option value="rojo">rojo</option>
+						<option value="verde">verde</option>
+						<option value="violeta">violeta</option>
+					</select>
+				</div>
+				
 				<h3>Configuración Regional:</h3>
 				
 				<div class="form-element">

@@ -10,6 +10,7 @@ define('URLFRIENDLY', 'http://local-dsp.web/faenli/');
 $app->config('locale', 'spanish');
 $app->config('timezone', 'America/Argentina/Buenos_Aires');
 $app->config('passCript', '2siR7cGop2wa7B');
+$app->config('theme', 'violeta');
 
 $app->config('db', array(
 	'motor'		=> 'MYSQL',

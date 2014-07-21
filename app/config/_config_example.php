@@ -9,6 +9,7 @@ $app = DMS\Tornado\Tornado::getInstance();
 $app->config('locale', 'spanish');
 $app->config('timezone', 'America/Argentina/Buenos_Aires');
 $app->config('passCript', '2siR7cGop2wa7B');
+$app->config('theme', 'celeste');
 
 $app->config('db', array(
 	'motor'		=> 'MYSQL',
