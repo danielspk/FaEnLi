@@ -12,6 +12,17 @@ $app->hook('init', function () use ($app) {
         return $buffer;
     });
 
+	// se determina si se debe iniciar el instalador del sistema
+	if (! is_array($app->config('db'))) {
+		
+		// se invoca manualmente al módulo de instalación
+		// y se interrumpe el flujo delcore
+		$app->callModule('instalacion', 'wizard', 'instalar');
+		$app->hook('end');
+		exit();
+		
+	}
+	
 	// se setea la configuración de zona y hora
 	setlocale(LC_TIME, $app->config('locale'));
 	date_default_timezone_set($app->config('timezone'));

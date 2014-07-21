@@ -1,11 +1,12 @@
 <?php
 
+/* Instancia de Tornado */
+$app = DMS\Tornado\Tornado::getInstance();
+
 /* Constantes */
 define('URLFRIENDLY', 'http://local-dsp.web/faenli/');
 
 /* Variables de Configuración */
-$app = DMS\Tornado\Tornado::getInstance();
-
 $app->config('locale', 'spanish');
 $app->config('timezone', 'America/Argentina/Buenos_Aires');
 $app->config('passCript', '2siR7cGop2wa7B');
@@ -21,10 +22,10 @@ $app->config('db', array(
 
 $app->config('api', array(
 	'tokenVida' => 45,
-	'tokenUser'	=> '$2y$11$Tc6iC.zDzsEE14btZ7UHvuHMl6/Vhv66KOORO4bdb9MpedE7lHKd2',
-	'tokenPass' => '$2y$11$7vSDE26rtZ16e.TTZXZ3KOShIT1Ba.T1De8WF7t0xC9WbciWFqFOW',
-	'apiUser'	=> '$2y$11$F4e5qY0nmdyOj.z0DkQBouu2sKVa3ZOiMN0OzM4XigsLWnQvy2CN2',
-	'apiPass'	=> '$2y$11$OaYv5p.Br4L0M1vOd9Xf7OlFKGx54Oey4Yg32LVlqGwT73X22blDe'
+	'tokenUser'	=> '$2y$11$AFgfjjLf86hE3AEuOZE1W.MsO8wN40NVcDziBQm/vuZo/Ld5FuSVa',
+	'tokenPass' => '$2y$11$oIFrmwd.uPtXFII.8HPFLezH38a4r2aVqbm22K10BGrlLbKVe1hxC',
+	'apiUser'	=> '$2y$11$YbpFtZkITOdKDoDYRtbA0uOy0HuCFQsGid586K.jRuqvj94.hvRT2',
+	'apiPass'	=> '$2y$11$ayuNFQjcaa/czSUKhLFOfOz9hd7fRxjAVwKlLzTvrjRctecC.UV.O'
 ));
 		
 $app->config('email', array(

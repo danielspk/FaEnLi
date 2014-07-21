@@ -14,6 +14,7 @@
  *       PANEL-FACTURAS
  *       ERROR-404
  *       ERROR-GENERAL
+ *       INSTALACION
  * CLASES-COMUNES..............Establece estilos comunes
  * EFECTOS.....................Establece estilos para efectos de animación
  * BOTONES.....................Establece estilos para botones
@@ -438,6 +439,33 @@ h5 {
 
 
 
+/**
+ * $INSTALACION
+ */
+.pnlInstalacion {
+	position: absolute;
+	left: 50%;
+	width: 800px;
+	margin: 30px 0 30px -400px;
+	padding: 15px 15px 25px 15px;
+	background-color: #fff;
+	border: 1px solid #d2d3d6;
+	border-top: 2px solid #4f8edc;
+	border-bottom: 2px solid #4f8edc;
+	border-radius: 3px;
+}
+.pnlInstalacion h2{
+	text-align: center;
+}
+.pnlInstalacion h3{
+	margin: 30px 0 10px 0;
+}
+.pnlBotonesIns{
+	margin-top: 30px;
+}
+
+
+
 /* -------------------------------------------------------------------------- *\
    $CLASES-COMUNES
 \* -------------------------------------------------------------------------- */
@@ -534,7 +562,15 @@ a.boton-opaco:hover {}
 	border-right: none;
 	text-align: center;
 }
-.form-element input{
+.form-element label.conTexto{
+	width: 220px;
+	text-align: left;
+}
+.form-element label.conTexto i{
+	padding-right: 15px;
+	padding-left: 20px;
+}
+.form-element input, .form-element select{
 	display: table-cell;
 	width: 100%;
 	height: 40px;

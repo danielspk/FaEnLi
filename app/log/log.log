@@ -422,3 +422,50 @@ Stack trace:
 #6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
 #7 {main}
 
+#20140721151140Xa40V1:
+exception 'ErrorException' with message 'Motor de base de datos no soportado' in C:\XAMPP55\htdocs\FaEnLi\app\vendor\dms-libs\database.php:75
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\vendor\dms-libs\database.php(89): DMS\Libs\DataBase->__construct(NULL)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\model\wizard.php(18): DMS\Libs\DataBase::conectar(NULL)
+#2 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\controller\wizard.php(87): app\modules\instalacion\model\Wizard->__construct()
+#3 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\controller\wizard.php(12): app\modules\instalacion\controller\Wizard->_procesarInstalacion()
+#4 [internal function]: app\modules\instalacion\controller\Wizard->instalar()
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#6 C:\XAMPP55\htdocs\FaEnLi\app\config\hook.php(20): DMS\Tornado\Tornado->callModule('instalacion', 'wizard', 'instalar')
+#7 [internal function]: {closure}()
+#8 C:\XAMPP55\htdocs\FaEnLi\app\core\hook.php(54): call_user_func(Object(Closure))
+#9 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(110): DMS\Tornado\Hook->call('init')
+#10 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#11 {main}
+
+#2014072115122161u27E:
+exception 'ErrorException' with message 'Motor de base de datos no soportado' in C:\XAMPP55\htdocs\FaEnLi\app\vendor\dms-libs\database.php:75
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\vendor\dms-libs\database.php(89): DMS\Libs\DataBase->__construct(NULL)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\model\wizard.php(18): DMS\Libs\DataBase::conectar(NULL)
+#2 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\controller\wizard.php(87): app\modules\instalacion\model\Wizard->__construct()
+#3 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\controller\wizard.php(12): app\modules\instalacion\controller\Wizard->_procesarInstalacion()
+#4 [internal function]: app\modules\instalacion\controller\Wizard->instalar()
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#6 C:\XAMPP55\htdocs\FaEnLi\app\config\hook.php(20): DMS\Tornado\Tornado->callModule('instalacion', 'wizard', 'instalar')
+#7 [internal function]: {closure}()
+#8 C:\XAMPP55\htdocs\FaEnLi\app\core\hook.php(54): call_user_func(Object(Closure))
+#9 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(110): DMS\Tornado\Hook->call('init')
+#10 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#11 {main}
+
+#20140721151900CyI1_E:
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'clave' cannot be null' in C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\model\wizard.php:99
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\model\wizard.php(99): PDOStatement->execute()
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\controller\wizard.php(44): app\modules\instalacion\model\Wizard->registrarSuperusuario()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\modules\instalacion\controller\wizard.php(12): app\modules\instalacion\controller\Wizard->_procesarInstalacion()
+#3 [internal function]: app\modules\instalacion\controller\Wizard->instalar()
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\config\hook.php(20): DMS\Tornado\Tornado->callModule('instalacion', 'wizard', 'instalar')
+#6 [internal function]: {closure}()
+#7 C:\XAMPP55\htdocs\FaEnLi\app\core\hook.php(54): call_user_func(Object(Closure))
+#8 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(110): DMS\Tornado\Hook->call('init')
+#9 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#10 {main}
+
