@@ -5,6 +5,7 @@ define('URLFRIENDLY', '[[urlfriendly]]');
 $app->config('locale', '[[locale]]');
 $app->config('timezone', '[[timezone]]');
 $app->config('passCript', '[[passCript]]');
+$app->config('theme', '[[theme]]');
 
 $app->config('db', array(
 	'motor'		=> 'MYSQL',
