@@ -23,3 +23,4 @@ $app->route('POST   /api/logs',						'api|log|getLogs');
 $app->route('DELETE /api/logs/borrar',				'api|log|borrarLogs');
 $app->route('POST   /api/usuarios',					'api|usuario|getUsuarios');
 $app->route('POST   /api/comprobantes/registrar',	'api|comprobante|registrar');
+$app->route('DELETE /api/comprobantes/borrar',		'api|comprobante|borrar');

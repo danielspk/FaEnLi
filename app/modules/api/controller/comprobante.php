@@ -8,12 +8,14 @@ class Comprobante extends \DMS\Tornado\Controller
 {
 	
 	private $_contToken;
+	private $_path;
 	
 	public function __construct()
 	{
 		$this->loadController('api|token');
 		
 		$this->_contToken = new controlador\Token();
+		$this->_path =__DIR__ . '/../../../../protected/';
 	}
 
 	public function registrar()
@@ -27,38 +29,65 @@ class Comprobante extends \DMS\Tornado\Controller
 		if ($this->_validaJsonComprobantes($comprobantes) === false) {
 			return;
 		}
-		
+
 		// se registran los comprobantes
-		
-		
-		
-		
-		exit();
-		
-		
-		
-		// se recorre los comprobantes
 		$this->loadModel('api|comprobante');
-		
+	
 		$modComprobante = new modelo\Comprobante();
+		$modComprobante->setComprobantes($comprobantes);
+		$modComprobante->registrar();
 		
-		
-		
-		
-		
-		
-		
-		$usuario->setNombre($usrNombre);
-		$usuario->setApellido($usrApellido);
-		$usuario->setEmail($usrEmail);
-		
-		$usuarios = $usuario->consultar();
-		
-		echo json_encode(array('estado' => 'ok', 'usuarios' => $usuarios));
+		echo json_encode(array('estado' => 'ok', 'detalle' => 'Comprobantes registrados exitosamente'));
 		
 	}
 	
-	private function _validaJsonComprobantes($pComprobantes)
+	public function borrar()
+	{
+		if ($this->_contToken->validaCredenciales() === false) {
+			return;
+		}
+		
+		$comprobantes = json_decode($_POST['comprobantes']);
+	
+		if ($this->_validaJsonComprobantes($comprobantes, false) === false) {
+			return;
+		}
+		
+		$cripto = new \DMS\Libs\Cripto();
+		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
+		
+		// se borran los comprobantes
+		$this->loadModel('api|comprobante');
+	
+		$modComprobante = new modelo\Comprobante();
+		
+		// se borran los archivos
+		foreach ($comprobantes->comprobantes as $comprobante) {
+			
+			$modComprobante->setTipo($comprobante->tipo);
+			$modComprobante->setPtoVenta($comprobante->ptoventa);
+			$modComprobante->setNumero($comprobante->numero);
+			$row = $modComprobante->getArchivo();
+			
+			if ($row) {
+				
+				$path = $this->_path . $cripto->desencriptar($row->archivo, $passCript) . '.pdf';
+				if (file_exists($path)) {
+					unlink($path);
+				}
+			}
+			
+		} 
+		
+		// se borran los comprobantes
+		$modComprobante->setComprobantes($comprobantes);
+		$modComprobante->borrar();
+		
+		echo json_encode(array('estado' => 'ok', 'detalle' => 'Comprobantes eliminados exitosamente'));
+		
+	}
+	
+	private function _validaJsonComprobantes($pComprobantes, $pFull = true)
 	{
 		
 		$comprobantes = $pComprobantes;
@@ -69,10 +98,15 @@ class Comprobante extends \DMS\Tornado\Controller
 			return false;
 		}
 		
+		$cripto = new \DMS\Libs\Cripto();
+		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
+		
 		$ciclo = 0;
 		$valida = new \DMS\Libs\Valida();
 		
 		foreach($comprobantes->comprobantes as $comprobante) {
+			
+			$ciclo++;
 			
 			if (!isset($comprobante->tipo)) {
 				$this->_formatoJsonNoValido('Campo \'tipo\' no definido', $ciclo);
@@ -85,7 +119,7 @@ class Comprobante extends \DMS\Tornado\Controller
 			if (!isset($comprobante->ptoventa)) {
 				$this->_formatoJsonNoValido('Campo \'ptoventa\' no definido', $ciclo);
 				return false;
-			} else if(! $valida->entero($comprobante->ptoventa) || $comprobante->ptoventa = 0) {
+			} else if(! $valida->entero($comprobante->ptoventa) || $comprobante->ptoventa == 0) {
 				$this->_formatoJsonNoValido('Campo \'ptoventa\' con errores', $ciclo);
 				return false;
 			}
@@ -93,9 +127,14 @@ class Comprobante extends \DMS\Tornado\Controller
 			if (!isset($comprobante->numero)) {
 				$this->_formatoJsonNoValido('Campo \'numero\' no definido', $ciclo);
 				return false;
-			} else if(! $valida->entero($comprobante->numero) || $comprobante->numero = 0 || $comprobante->numero > 99999999) {
+			} else if(! $valida->entero($comprobante->numero) || $comprobante->numero == 0 || $comprobante->numero > 99999999) {
 				$this->_formatoJsonNoValido('Campo \'numero\' con errores', $ciclo);
 				return false;
+			}
+			
+			// se omiten las otras validaciones si el chequeo no es full
+			if ($pFull !== true) {
+				continue;
 			}
 			
 			if (!isset($comprobante->fecha)) {
@@ -128,6 +167,21 @@ class Comprobante extends \DMS\Tornado\Controller
 			} else if(strlen(trim($comprobante->archivo)) < 1) {
 				$this->_formatoJsonNoValido('Campo \'archivo\' con errores', $ciclo);
 				return false;
+			} else {
+				
+				$path = $this->_path . $comprobante->archivo . '.pdf';
+				
+				if(!file_exists($path)) {
+					
+					$this->_formatoJsonNoValido('El archivo no se encuentra en el servidor', $ciclo);
+					return false;
+				
+				} else {
+					
+					$comprobante->archivo = $cripto->encriptar($comprobante->archivo, $passCript);
+					
+				}
+
 			}
 			
 			if (!isset($comprobante->usuarios)) {
@@ -143,7 +197,6 @@ class Comprobante extends \DMS\Tornado\Controller
 				}
 			}
 			
-			$ciclo++;
 		}
 		
 		return true;

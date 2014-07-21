@@ -34,11 +34,13 @@ class Comprobante extends \DMS\Tornado\Controller
 		
 		$cripto = new \DMS\Libs\Cripto();
 		
-		$pdf = $cripto->desencriptar($pPDF, 'clave') . '.pdf';
+		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
+		$pdf = $cripto->desencriptar($pPDF, $passCript) . '.pdf';
 
 		$path = __DIR__ . '/../../../../protected/' . $pdf;
 		
 		if (file_exists($path) == false) {
+			$this->loadView('publico|noencontrado');
 			return;
 		}
 		

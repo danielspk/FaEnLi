@@ -77,3 +77,348 @@ Stack trace:
 #7 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
 #8 {main}
 
+#20140720231457to26Eh:
+exception 'ErrorException' with message 'Object of class stdClass could not be converted to string' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\model\comprobante.php:22
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\model\comprobante.php(22): DMS\Tornado\Error->handlerError(4096, 'Object of class...', 'C:\\XAMPP55\\htdo...', 22, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php(36): app\modules\api\model\Comprobante->registrar()
+#2 [internal function]: app\modules\api\controller\Comprobante->registrar()
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'comprobante', 'registrar', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232001E8Q2rb:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232126Yuh-Vw:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232252DhZisT:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232253WI5opX:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#201407202322530C2oxi:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232254ECX1U9:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232355XeQpYH:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#201407202323567EUPP8:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232356TWTgbU:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232449PAf5Bu:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232450cxeD40:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232717XAAV4v:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#201407202327171qDagr:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232717ofhgcS:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720232718250ITT:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233328Fhcfec:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:45
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 45, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(45): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233329G31Q6B:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:45
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 45, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(45): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233354Ru1AX4:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:45
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 45, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(45): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233355UVCsXz:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:45
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 45, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(45): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233355pe5Iy2:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:45
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 45, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(45): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233417y91-t2:
+exception 'ErrorException' with message 'filesize(): stat failed for C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller/../../../../protected/FA0001-0001236.pdf' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:55
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'filesize(): sta...', 'C:\\XAMPP55\\htdo...', 55, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(55): filesize('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('AtYYIHMSBnOFgUC...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233440YAFIoW:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:44
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 44, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(44): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233504oW0Ipr:
+exception 'ErrorException' with message 'filesize(): stat failed for C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller/../../../../protected/FA0001-0001236.pdf' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:55
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'filesize(): sta...', 'C:\\XAMPP55\\htdo...', 55, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(55): filesize('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('AtYYIHMSBnOFgUC...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233528Egwzxa:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233621EOuzZD:
+exception 'Exception' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:46
+Stack trace:
+#0 [internal function]: app\modules\publico\controller\Comprobante->descarga('AtYYIHMSBnOFgUC...')
+#1 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#4 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#5 {main}
+
+#201407202336392PqY4T:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:46
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(46): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 46, Array)
+#1 [internal function]: app\modules\publico\controller\Comprobante->descarga('AtYYIHMSBnOFgUC...')
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#2014072023373494HE0W:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
+#20140720233830fHfQFv:
+exception 'ErrorException' with message 'file_exists() expects parameter 1 to be a valid path, string given' in C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php:42
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'file_exists() e...', 'C:\\XAMPP55\\htdo...', 42, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\modules\publico\controller\comprobante.php(42): file_exists('C:\\XAMPP55\\htdo...')
+#2 [internal function]: app\modules\publico\controller\Comprobante->descarga('xicurjv4Umv9VqX...')
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('publico', 'comprobante', 'descarga', Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#6 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#7 {main}
+
