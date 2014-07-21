@@ -1,0 +1,55 @@
+#20140721112452-a-TSD:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php:22
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php(22): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 22, Array)
+#1 [internal function]: app\modules\api\controller\Log->borrarLogs()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'log', 'borrarLogs', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140721112455xDUDSA:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php:22
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php(22): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 22, Array)
+#1 [internal function]: app\modules\api\controller\Log->borrarLogs()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'log', 'borrarLogs', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140721112456gUPEC5:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php:22
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php(22): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 22, Array)
+#1 [internal function]: app\modules\api\controller\Log->borrarLogs()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'log', 'borrarLogs', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140721112457X1tesh:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php:22
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php(22): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 22, Array)
+#1 [internal function]: app\modules\api\controller\Log->borrarLogs()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'log', 'borrarLogs', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140721112458cf0QWf:
+exception 'ErrorException' with message 'Division by zero' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php:22
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\log.php(22): DMS\Tornado\Error->handlerError(2, 'Division by zer...', 'C:\\XAMPP55\\htdo...', 22, Array)
+#1 [internal function]: app\modules\api\controller\Log->borrarLogs()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'log', 'borrarLogs', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+

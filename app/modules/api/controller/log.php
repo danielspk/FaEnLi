@@ -48,6 +48,9 @@ class Log extends \DMS\Tornado\Controller
 		
 		$contLogReg = explode("\n\n", $contLog);
 		
+		// se elimina ultimo posicion (siempre es vacio)	
+		unset($contLogReg[count($contLogReg)-1]);
+		
 		echo json_encode(array('estado' => 'ok', 'contenido' => $contLogReg));
 		
 	}
