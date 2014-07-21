@@ -1,0 +1,79 @@
+#20140720204114_ZUhS2:
+exception 'ErrorException' with message 'Object of class stdClass could not be converted to string' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php:26
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php(26): DMS\Tornado\Error->handlerError(4096, 'Object of class...', 'C:\\XAMPP55\\htdo...', 26, Array)
+#1 [internal function]: app\modules\api\controller\Comprobante->registrar()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'comprobante', 'registrar', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720204636Xh33bC:
+exception 'ErrorException' with message 'Invalid argument supplied for foreach()' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php:37
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php(37): DMS\Tornado\Error->handlerError(2, 'Invalid argumen...', 'C:\\XAMPP55\\htdo...', 37, Array)
+#1 [internal function]: app\modules\api\controller\Comprobante->registrar()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'comprobante', 'registrar', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#2014072020471615t8Cx:
+exception 'ErrorException' with message 'Invalid argument supplied for foreach()' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php:37
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php(37): DMS\Tornado\Error->handlerError(2, 'Invalid argumen...', 'C:\\XAMPP55\\htdo...', 37, Array)
+#1 [internal function]: app\modules\api\controller\Comprobante->registrar()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'comprobante', 'registrar', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720204809G1AqiY:
+exception 'ErrorException' with message 'Invalid argument supplied for foreach()' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php:40
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php(40): DMS\Tornado\Error->handlerError(2, 'Invalid argumen...', 'C:\\XAMPP55\\htdo...', 40, Array)
+#1 [internal function]: app\modules\api\controller\Comprobante->registrar()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'comprobante', 'registrar', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720205212TXbd2X:
+exception 'ErrorException' with message 'Invalid argument supplied for foreach()' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php:33
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php(33): DMS\Tornado\Error->handlerError(2, 'Invalid argumen...', 'C:\\XAMPP55\\htdo...', 33, Array)
+#1 [internal function]: app\modules\api\controller\Comprobante->registrar()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'comprobante', 'registrar', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720205236RgRaAE:
+exception 'ErrorException' with message 'Invalid argument supplied for foreach()' in C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php:33
+Stack trace:
+#0 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php(33): DMS\Tornado\Error->handlerError(2, 'Invalid argumen...', 'C:\\XAMPP55\\htdo...', 33, Array)
+#1 [internal function]: app\modules\api\controller\Comprobante->registrar()
+#2 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#3 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'comprobante', 'registrar', Array)
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#5 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#6 {main}
+
+#20140720212116bUXW7G:
+exception 'ErrorException' with message 'checkdate() expects parameter 2 to be long, string given' in C:\XAMPP55\htdocs\FaEnLi\app\vendor\dms-libs\valida.php:72
+Stack trace:
+#0 [internal function]: DMS\Tornado\Error->handlerError(2, 'checkdate() exp...', 'C:\\XAMPP55\\htdo...', 72, Array)
+#1 C:\XAMPP55\htdocs\FaEnLi\app\vendor\dms-libs\valida.php(72): checkdate('03', 'AA', '2014')
+#2 C:\XAMPP55\htdocs\FaEnLi\app\modules\api\controller\comprobante.php(65): DMS\Libs\Valida->fecha('2014-03-AA')
+#3 [internal function]: app\modules\api\controller\Comprobante->registrar()
+#4 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(362): call_user_func_array(Array, Array)
+#5 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(257): DMS\Tornado\Tornado->callModule('api', 'comprobante', 'registrar', Array)
+#6 C:\XAMPP55\htdocs\FaEnLi\app\core\tornado.php(113): DMS\Tornado\Tornado->_parseURL()
+#7 C:\XAMPP55\htdocs\FaEnLi\index.php(52): DMS\Tornado\Tornado->run()
+#8 {main}
+

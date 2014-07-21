@@ -18,7 +18,8 @@ $app->route('/logout',					'publico|acceso|logout');
 $app->route('/panel',					'publico|comprobante|panel');
 $app->route('/comprobante/:alpha',		'publico|comprobante|descarga');
 
-$app->route('POST   /api/token',		'api|token|getToken');
-$app->route('POST   /api/logs',			'api|log|getLogs');
-$app->route('DELETE /api/logs/borrar',	'api|log|borrarLogs');
-$app->route('POST   /api/usuarios',		'api|usuario|getUsuarios');
+$app->route('POST   /api/token',					'api|token|getToken');
+$app->route('POST   /api/logs',						'api|log|getLogs');
+$app->route('DELETE /api/logs/borrar',				'api|log|borrarLogs');
+$app->route('POST   /api/usuarios',					'api|usuario|getUsuarios');
+$app->route('POST   /api/comprobantes/registrar',	'api|comprobante|registrar');
