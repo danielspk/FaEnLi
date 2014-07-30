@@ -1,7 +1,7 @@
 FaEnLi
 ======
 
-![Alt text](/public/img/logo_faenli.png?raw=true "Logo FaEnLi")
+![ScreenShot](https://raw.github.com/danielspk/FaEnLi/blob/master/public/img/logo_faenli.png)
 
 **Proyecto en desarrollo**
 
