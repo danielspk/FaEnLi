@@ -1,3 +1,3 @@
 	<footer class="powerBy">
-		<a href="https://github.com/danielspk/FaEnLi">FaEnLi - OpenSource</a>
+		<a href="https://github.com/danielspk/FaEnLi">FaEnLi - Web</a>
 	</footer>

@@ -1,3 +1,8 @@
+<?php
+
+/* Instancia de Tornado */
+$app = DMS\Tornado\Tornado::getInstance();
+
 /* Constantes */
 define('URLFRIENDLY', '[[urlfriendly]]');
 
@@ -17,7 +22,7 @@ $app->config('db', array(
 ));
 
 $app->config('api', array(
-	'tokenVida' => [[tokenVida]],
+	'tokenVida' => '[[tokenVida]]',
 	'tokenUser'	=> '[[tokenUser]]',
 	'tokenPass' => '[[tokenPass]]',
 	'apiUser'	=> '[[apiUser]]',
@@ -29,7 +34,11 @@ $app->config('email', array(
 	'user'      => '[[email_user]]',
 	'pass'      => '[[email_pass]]',
 	'port'      => '[[email_port]]',
-	'ssl'		=> [[email_ssl]],
+	'ssl'		=> '[[email_ssl]]',
 	'fromEmail' => '[[email_fromEmail]]',
 	'fromNombre'=> '[[email_fromNombre]]',
 ));
+
+/* Autoload de librerías */
+$app->autoload(true);
+$app->autoload("DMS\Libs", array('vendor/dms-libs'));

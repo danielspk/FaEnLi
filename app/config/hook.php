@@ -13,7 +13,7 @@ $app->hook('init', function () use ($app) {
     });
 
 	// se determina si se debe iniciar el instalador del sistema
-	if (! is_array($app->config('db'))) {
+	if (URLFRIENDLY === '[[urlfriendly]]') {
 		
 		// se invoca manualmente al módulo de instalación
 		// y se interrumpe el flujo delcore
