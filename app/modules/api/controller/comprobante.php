@@ -1,19 +1,38 @@
 <?php
 namespace app\modules\api\controller;
 
-use app\modules\api\model as modelo;
+use DMS\Tornado\Tornado;
+use DMS\Tornado\Controller;
+use DMS\PHPLibs as Help;
+use app\modules\api\model as Modelo;
 
-class Comprobante extends \DMS\Tornado\Controller
+/**
+ * Class Comprobante
+ * @package app\modules\api\controller
+ */
+class Comprobante extends Controller
 {
-	
+    /**
+     * @var Token Controlador Token
+     */
 	private $_contToken;
+
+    /**
+     * @var string Path a PDFs
+     */
 	private $_path;
-	
-	public function __construct()
+
+    /**
+     * Contructor del controlador
+     * @param Tornado $pApp Instancia de Tornado
+     */
+	public function __construct(Tornado $pApp)
 	{
+        parent::__construct($pApp);
+
 		$this->loadController('api|token');
 		
-		$this->_contToken = new \Token();
+		$this->_contToken = new Token($pApp);
 		$this->_path =__DIR__ . '/../../../../protected/';
 	}
 
@@ -32,7 +51,7 @@ class Comprobante extends \DMS\Tornado\Controller
 		// se registran los comprobantes
 		$this->loadModel('api|comprobante');
 	
-		$modComprobante = new modelo\Comprobante();
+		$modComprobante = new Modelo\Comprobante();
 		$modComprobante->setComprobantes($comprobantes);
 		$modComprobante->registrar();
 		
@@ -52,13 +71,13 @@ class Comprobante extends \DMS\Tornado\Controller
 			return;
 		}
 		
-		$cripto = new \DMS\PHPLibs\Cripto();
-		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
+		$cripto = new Help\Cripto();
+		$passCript = $this->app->config('passCript');
 		
 		// se borran los comprobantes
 		$this->loadModel('api|comprobante');
 	
-		$modComprobante = new modelo\Comprobante();
+		$modComprobante = new Modelo\Comprobante();
 		
 		// se borran los archivos
 		foreach ($comprobantes->comprobantes as $comprobante) {
@@ -97,11 +116,11 @@ class Comprobante extends \DMS\Tornado\Controller
 			return false;
 		}
 		
-		$cripto = new \DMS\PHPLibs\Cripto();
-		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
+		$cripto = new Help\Cripto();
+		$passCript = $this->app->config('passCript');
 		
 		$ciclo = 0;
-		$valida = new \DMS\PHPLibs\Valida();
+		$valida = new Help\Valida();
 		
 		foreach($comprobantes->comprobantes as $comprobante) {
 			

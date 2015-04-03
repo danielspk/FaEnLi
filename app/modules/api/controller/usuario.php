@@ -1,18 +1,22 @@
 <?php
 namespace app\modules\api\controller;
 
-use app\modules\api\model as modelo;
+use DMS\Tornado\Tornado;
+use DMS\Tornado\Controller;
+use app\modules\api\model as Modelo;
 
-class Usuario extends \DMS\Tornado\Controller
+class Usuario extends Controller
 {
 	
 	private $_contToken;
 	
-	public function __construct()
+	public function __construct(Tornado $pApp)
 	{
+        parent::__construct($pApp);
+
 		$this->loadController('api|token');
 		
-		$this->_contToken = new \Token();
+		$this->_contToken = new Token($pApp);
 	}
 
 	public function getUsuarios()
@@ -36,7 +40,7 @@ class Usuario extends \DMS\Tornado\Controller
 		
 		$this->loadModel('api|usuario');
 		
-		$usuario = new modelo\Usuario();
+		$usuario = new Modelo\Usuario();
 		$usuario->setNombre($usrNombre);
 		$usuario->setApellido($usrApellido);
 		$usuario->setEmail($usrEmail);

@@ -9,7 +9,7 @@ $app->config('tornado_hmvc_use', false);
 $app->config('tornado_hmvc_module_path', 'app/modules');
 $app->config('tornado_hmvc_serialize_path', 'app/modules');
 
-/* Variables de Configuración */
+/* Configuración de FaEnLi */
 $app->config('locale', '[[locale]]');
 $app->config('timezone', '[[timezone]]');
 $app->config('passCript', '[[passCript]]');
@@ -33,12 +33,11 @@ $app->config('api', array(
 ));
 		
 $app->config('email', array(
-	'smtp'		=> '[[email_smtp]]',
-	'user'      => '[[email_user]]',
-	'pass'      => '[[email_pass]]',
-	'port'      => '[[email_port]]',
-	'ssl'		=> '[[email_ssl]]',
-	'fromEmail' => '[[email_fromEmail]]',
-	'fromNombre'=> '[[email_fromNombre]]',
+	'smtp'		 => '[[email_smtp]]',
+	'user'       => '[[email_user]]',
+	'pass'       => '[[email_pass]]',
+	'port'       => '[[email_port]]',
+	'ssl'		 => '[[email_ssl]]',
+	'fromEmail'  => '[[email_fromEmail]]',
+	'fromNombre' => '[[email_fromNombre]]',
 ));
-

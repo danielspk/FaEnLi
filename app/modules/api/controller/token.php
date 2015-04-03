@@ -1,9 +1,15 @@
 <?php
 namespace app\modules\api\controller;
 
-use app\modules\api\model as modelo;
+use DMS\Tornado\Controller;
+use DMS\PHPLibs as Help;
+use app\modules\api\model as Modelo;
 
-class Token extends \DMS\Tornado\Controller
+/**
+ * Class Token
+ * @package app\modules\api\controller
+ */
+class Token extends Controller
 {
 	
 	public function getToken()
@@ -12,7 +18,7 @@ class Token extends \DMS\Tornado\Controller
 		$user = filter_input(INPUT_POST, 'user', FILTER_SANITIZE_STRING);
 		$pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
 		
-		$credenciales = \DMS\Tornado\Tornado::getInstance()->config('api');
+		$credenciales = $this->app->config('api');
 		
 		if (
 			password_verify($user, $credenciales['tokenUser']) !== false &&
@@ -24,13 +30,13 @@ class Token extends \DMS\Tornado\Controller
 		}
 		
 		// se genera un token aleatorio
-		$cripto = new  \DMS\PHPLibs\Cripto();
+		$cripto = new  Help\Cripto();
 		$tokenHash = $cripto->crearHash(55);
 		
 		// se registra el token en la base de datos
 		$this->loadModel('api|token');
 		
-		$token = new modelo\Token();
+		$token = new Modelo\Token();
 		$token->setToken($tokenHash);
 		$token->setVida(time() + $credenciales['tokenVida']);
 		$token->setEstado($estado);
@@ -51,7 +57,7 @@ class Token extends \DMS\Tornado\Controller
 		// se determina si el token esta vigente
 		$this->loadModel('api|token');
 		
-		$token = new modelo\Token();
+		$token = new Modelo\Token();
 		$token->setToken($tokenHash);
 		
 		if ($token->verVigencia() == false) {
@@ -59,7 +65,7 @@ class Token extends \DMS\Tornado\Controller
 			return false;
 		}
 		
-		$credenciales = \DMS\Tornado\Tornado::getInstance()->config('api');
+		$credenciales = $this->app->config('api');
 
 		if (
 			password_verify($user, $credenciales['apiUser']) === false ||

@@ -1,9 +1,11 @@
 <?php
 namespace app\modules\publico\controller;
 
-use app\modules\publico\model as modelo;
+use DMS\Tornado\Controller;
+use DMS\PHPLibs as Help;
+use app\modules\publico\model as Modelo;
 
-class Comprobante extends \DMS\Tornado\Controller
+class Comprobante extends Controller
 {
 	
 	public function panel()
@@ -12,7 +14,7 @@ class Comprobante extends \DMS\Tornado\Controller
 		
 		$this->loadModel('publico|comprobante');
 		
-		$comprobante = new modelo\Comprobante();
+		$comprobante = new Modelo\Comprobante();
 		
 		if ($_SESSION['usrRoot'])
 			$comprobante->setEmail('ALL');
@@ -41,7 +43,7 @@ class Comprobante extends \DMS\Tornado\Controller
 			
 			$this->loadModel('publico|comprobante');
 
-			$modComprobante = new modelo\Comprobante();
+			$modComprobante = new Modelo\Comprobante();
 			$modComprobante->setEmail($_SESSION['usrEmail']);
 			$modComprobante->setArchivo($pPDF);
 			
@@ -52,9 +54,9 @@ class Comprobante extends \DMS\Tornado\Controller
 			
 		}
 		
-		$cripto = new \DMS\PHPLibs\Cripto();
+		$cripto = new Help\Cripto();
 		
-		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
+		$passCript = $this->app->config('passCript');
 		$pdf = $cripto->desencriptar($pPDF, $passCript) . '.pdf';
 
 		$path = __DIR__ . '/../../../../protected/' . $pdf;

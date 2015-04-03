@@ -2,15 +2,15 @@
 
 $app->hook('init', function () use ($app) {
 
-    // se setea la configuración de zona y hora
-    setlocale(LC_TIME, $app->config('locale'));
-    date_default_timezone_set($app->config('timezone'));
-
 	// se determina si se debe iniciar el instalador del sistema
 	if (URLFRIENDLY === '[[urlfriendly]]') {
 		$app->forwardModule('instalacion|wizard|instalar');
 		exit();
 	}
+
+    // se setea la configuración de zona y hora
+    setlocale(LC_TIME, $app->config('locale'));
+    date_default_timezone_set($app->config('timezone'));
 
 });
 

@@ -1,9 +1,10 @@
 <?php
 namespace app\modules\instalacion\controller;
 
-use app\modules\instalacion\model as modelo;
+use DMS\Tornado\Controller;
+use app\modules\instalacion\model as Modelo;
 
-class Wizard extends \DMS\Tornado\Controller
+class Wizard extends Controller
 {
 
 	public function instalar()
@@ -25,7 +26,7 @@ class Wizard extends \DMS\Tornado\Controller
 		// se crea la estructura de la base de datos
 		$this->loadModel('instalacion|wizard');
 	
-		$modWizard = new modelo\Wizard(array(
+		$modWizard = new Modelo\Wizard(array(
 			'motor'		=> 'MYSQL',
 			'host'      => $_POST['db_host'],
 			'base'      => $_POST['db_base'],
