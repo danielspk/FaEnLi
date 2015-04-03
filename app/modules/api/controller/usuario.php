@@ -2,7 +2,6 @@
 namespace app\modules\api\controller;
 
 use app\modules\api\model as modelo;
-use app\modules\api\controller as controlador;
 
 class Usuario extends \DMS\Tornado\Controller
 {
@@ -13,7 +12,7 @@ class Usuario extends \DMS\Tornado\Controller
 	{
 		$this->loadController('api|token');
 		
-		$this->_contToken = new controlador\Token();
+		$this->_contToken = new \Token();
 	}
 
 	public function getUsuarios()

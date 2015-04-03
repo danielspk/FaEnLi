@@ -33,6 +33,10 @@ class Wizard extends \DMS\Tornado\Controller
 			'pass'      => $_POST['db_pass'],
 			'collation' => 'utf8'
 		));
+
+        // si se selecciono generar estructura de tablas ......
+
+
 		$modWizard->crearTablas();
 		
 		// se ingresa al super usuario en la base de datos

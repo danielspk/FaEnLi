@@ -1,10 +1,13 @@
 <?php
 
-/* Instancia de Tornado */
-$app = DMS\Tornado\Tornado::getInstance();
-
 /* Constantes */
 define('URLFRIENDLY', '[[urlfriendly]]');
+
+/* Configuración de TornadoPHP */
+$app->config('tornado_environment_development', true);
+$app->config('tornado_hmvc_use', false);
+$app->config('tornado_hmvc_module_path', 'app/modules');
+$app->config('tornado_hmvc_serialize_path', 'app/modules');
 
 /* Variables de Configuración */
 $app->config('locale', '[[locale]]');
@@ -39,6 +42,3 @@ $app->config('email', array(
 	'fromNombre'=> '[[email_fromNombre]]',
 ));
 
-/* Autoload de librerías */
-$app->autoload(true);
-$app->autoload("DMS\Libs", array('vendor/dms-libs'));

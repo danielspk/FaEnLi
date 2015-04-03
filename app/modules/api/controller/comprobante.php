@@ -2,7 +2,6 @@
 namespace app\modules\api\controller;
 
 use app\modules\api\model as modelo;
-use app\modules\api\controller as controlador;
 
 class Comprobante extends \DMS\Tornado\Controller
 {
@@ -14,7 +13,7 @@ class Comprobante extends \DMS\Tornado\Controller
 	{
 		$this->loadController('api|token');
 		
-		$this->_contToken = new controlador\Token();
+		$this->_contToken = new \Token();
 		$this->_path =__DIR__ . '/../../../../protected/';
 	}
 
@@ -53,7 +52,7 @@ class Comprobante extends \DMS\Tornado\Controller
 			return;
 		}
 		
-		$cripto = new \DMS\Libs\Cripto();
+		$cripto = new \DMS\PHPLibs\Cripto();
 		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
 		
 		// se borran los comprobantes
@@ -98,11 +97,11 @@ class Comprobante extends \DMS\Tornado\Controller
 			return false;
 		}
 		
-		$cripto = new \DMS\Libs\Cripto();
+		$cripto = new \DMS\PHPLibs\Cripto();
 		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
 		
 		$ciclo = 0;
-		$valida = new \DMS\Libs\Valida();
+		$valida = new \DMS\PHPLibs\Valida();
 		
 		foreach($comprobantes->comprobantes as $comprobante) {
 			

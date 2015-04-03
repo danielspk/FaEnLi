@@ -52,7 +52,7 @@ class Comprobante extends \DMS\Tornado\Controller
 			
 		}
 		
-		$cripto = new \DMS\Libs\Cripto();
+		$cripto = new \DMS\PHPLibs\Cripto();
 		
 		$passCript = \DMS\Tornado\Tornado::getInstance()->config('passCript');
 		$pdf = $cripto->desencriptar($pPDF, $passCript) . '.pdf';

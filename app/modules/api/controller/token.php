@@ -24,7 +24,7 @@ class Token extends \DMS\Tornado\Controller
 		}
 		
 		// se genera un token aleatorio
-		$cripto = new  \DMS\Libs\Cripto();
+		$cripto = new  \DMS\PHPLibs\Cripto();
 		$tokenHash = $cripto->crearHash(55);
 		
 		// se registra el token en la base de datos

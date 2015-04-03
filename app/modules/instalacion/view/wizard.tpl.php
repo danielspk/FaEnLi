@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<base href='<?= str_replace('index.php', '', $_SERVER['PHP_SELF']) ?>' />
-	<title> Instalación</title>
+	<title> Instalación FaEnLi</title>
 	<link rel="shortcut icon" type="image/x-icon" href="./public/img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./public/css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="./public/css/estilos.css" media="all" />
@@ -16,7 +16,7 @@
 	<div class="pnlInstalacion">
 		
 		<div class="centrado">
-			<img src="./public/img/logo_faenli.png" alt="Su FaEnLi" />
+			<img src="./public/img/logo_faenli.png" alt="FaEnLi" />
 		</div>
 					
 		<div>
@@ -111,7 +111,15 @@
 				</div>
 				
 				<h3>Base de Datos:</h3>
-				
+
+                <div class="form-element">
+                    <label class="conTexto" for="db_create"><i class="fa fa-road"></i>Crear tablas:</label>
+                    <select name="db_create" id="db_create">
+                        <option value="1">SI</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+
 				<div class="form-element">
 					<label class="conTexto" for="db_host"><i class="fa fa-sitemap"></i>Host / IP:</label>
 					<input type="text" name="db_host" id="db_host" placeholder="Host / IP" />

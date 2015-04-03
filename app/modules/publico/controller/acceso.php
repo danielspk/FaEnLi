@@ -39,7 +39,7 @@ class Acceso extends \DMS\Tornado\Controller
 			
 		}
 		
-		$captcha = new \DMS\Libs\Captcha();
+		$captcha = new \DMS\PHPLibs\Captcha();
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
@@ -93,7 +93,7 @@ class Acceso extends \DMS\Tornado\Controller
 			
 		}
 		
-		$captcha = new \DMS\Libs\Captcha();
+		$captcha = new \DMS\PHPLibs\Captcha();
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
@@ -113,7 +113,7 @@ class Acceso extends \DMS\Tornado\Controller
 		}
 		
 		// se genera y guarda el código de recupero de contraseña
-		$cripto = new \DMS\Libs\Cripto();
+		$cripto = new \DMS\PHPLibs\Cripto();
 	
 		$hash = $cripto->crearHash(98);
 		
@@ -189,7 +189,7 @@ class Acceso extends \DMS\Tornado\Controller
 			
 		}
 		
-		$captcha = new \DMS\Libs\Captcha();
+		$captcha = new \DMS\PHPLibs\Captcha();
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
@@ -214,7 +214,7 @@ class Acceso extends \DMS\Tornado\Controller
 		}
 
 		// se valida el formaro de las contraseñas
-		$valid = new \DMS\Libs\Valida();
+		$valid = new \DMS\PHPLibs\Valida();
 		
 		if (!$valid->contrasenia($password)) {
 			$respuesta['descripcion'] = 'La contraseña ingresada no es válida';
@@ -259,7 +259,7 @@ class Acceso extends \DMS\Tornado\Controller
 			
 		}
 		
-		$captcha = new \DMS\Libs\Captcha();
+		$captcha = new \DMS\PHPLibs\Captcha();
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
@@ -289,7 +289,7 @@ class Acceso extends \DMS\Tornado\Controller
 		}
 		
 		// se valida el formato de los campos ingresados
-		$valid = new \DMS\Libs\Valida();
+		$valid = new \DMS\PHPLibs\Valida();
 		
 		if (!$valid->nombreApellido($nombre)) {
 			$respuesta['descripcion'] = 'El nombre no es válido';

@@ -15,7 +15,7 @@ class Comprobante
 	/* Constructor */
 	public function __construct()
 	{
-		$this->_conex = \DMS\Libs\DataBase::conectar(\DMS\Tornado\Tornado::getInstance()->config('db'));
+		$this->_conex = \DMS\PHPLibs\DataBase::conectar(\DMS\Tornado\Tornado::getInstance()->config('db'));
 	}
 	
 	/* Métodos públicos */

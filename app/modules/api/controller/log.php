@@ -2,7 +2,6 @@
 namespace app\modules\api\controller;
 
 use app\modules\api\model as modelo;
-use app\modules\api\controller as controlador;
 
 class Log extends \DMS\Tornado\Controller
 {
@@ -14,7 +13,7 @@ class Log extends \DMS\Tornado\Controller
 	{
 		$this->loadController('api|token');
 		
-		$this->_contToken = new controlador\Token();
+		$this->_contToken = new \Token();
 		$this->_path = __DIR__ . '/../../../log/log.log';
 	}
 	

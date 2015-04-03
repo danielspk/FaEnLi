@@ -20,13 +20,14 @@ class Wizard
 		else 
 			$conex = $pConex;
 		
-		$this->_conex = \DMS\Libs\DataBase::conectar($conex);
+		$this->_conex = \DMS\PHPLibs\DataBase::conectar($conex);
 	}
 	
 	/* Métodos públicos */
 	public function crearTablas()
 	{
-		
+		// se eliminan tablas existentes .....
+
 		//tabla de comprobantes
 		$sql = '
 		CREATE TABLE IF NOT EXISTS `comprobantes` (
@@ -82,11 +83,8 @@ class Wizard
 		';
 		$this->_conex->exec($sql);
 		unset($sql);
-		
-		
-	
+
 		$this->_conex->desconectar();
-		
 	}
 
 	public function registrarSuperusuario()
