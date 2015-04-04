@@ -2,7 +2,6 @@
 namespace app\modules\publico\controller;
 
 use DMS\Tornado\Controller;
-use DMS\PHPLibs as Help;
 use app\modules\publico\model as Modelo;
 
 class Comprobante extends Controller
@@ -54,7 +53,7 @@ class Comprobante extends Controller
 			
 		}
 		
-		$cripto = new Help\Cripto();
+		$cripto = $this->app->container('cripto');
 		
 		$passCript = $this->app->config('passCript');
 		$pdf = $cripto->desencriptar($pPDF, $passCript) . '.pdf';

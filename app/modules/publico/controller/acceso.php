@@ -2,7 +2,6 @@
 namespace app\modules\publico\controller;
 
 use DMS\Tornado\Controller;
-use DMS\PHPLibs as Help;
 use app\modules\publico\model as Modelo;
 
 class Acceso extends Controller
@@ -41,7 +40,7 @@ class Acceso extends Controller
             return null;
 		}
 		
-		$captcha = new Help\Captcha();
+		$captcha = $this->app->container('captcha');
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
@@ -97,7 +96,7 @@ class Acceso extends Controller
             return null;
 		}
 		
-		$captcha = new Help\Captcha();
+		$captcha = $this->app->container('captcha');
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
@@ -119,7 +118,7 @@ class Acceso extends Controller
 		}
 		
 		// se genera y guarda el código de recupero de contraseña
-		$cripto = new Help\Cripto();
+		$cripto = $this->app->container('cripto');
 	
 		$hash = $cripto->crearHash(98);
 		
@@ -135,27 +134,11 @@ class Acceso extends Controller
 		$txtEmail = str_replace('[[url]]', URLFRIENDLY . 'restablecer/' . $hash, $txtEmail);
 		
 		// se remite un mail al cliente
-		//require __DIR__ . '/../../../vendor/swiftmailer/swift_required.php';
-		
 		$confEmail = $this->app->config('email');
-		
-		if ($confEmail['ssl'] == true) {
-			
-			$sTransport = \Swift_SmtpTransport::newInstance($confEmail['smtp'], $confEmail['port'], 'ssl')
-			->setUsername($confEmail['user'])
-			->setPassword($confEmail['pass']);
-			
-		} else {
-			
-			$sTransport = \Swift_SmtpTransport::newInstance($confEmail['smtp'], $confEmail['port'])
-			->setUsername($confEmail['user'])
-			->setPassword($confEmail['pass']);
-			
-		}
-		
-		$sMailer = \Swift_Mailer::newInstance($sTransport);
-		
-		$sMessage = \Swift_Message::newInstance('Restrablecer constraseña')
+
+        $sMailer = $this->app->container('smtpMailer');
+        $sMessage = $this->app->container('smtpMessage');
+		$sMessage->setSubject('Restrablecer constraseña')
 			->setFrom(array($confEmail['fromEmail'] => $confEmail['fromNombre']))
 			->setTo(array($usrDatos->email))
 			->setBody($txtEmail, 'text/html');
@@ -166,12 +149,10 @@ class Acceso extends Controller
 		$respuesta['estado'] = 'ok';
 		$respuesta['url'] = URLFRIENDLY . 'login';
 		$this->_imprimeJSON($respuesta);
-		
 	}
 	
 	public function restablecer($pCodigoRes = null)
 	{
-
 		$this->_validaSesionIniciada();
 		
 		$this->loadView('publico|restablecer', array('codigoRes' => $pCodigoRes));
@@ -195,7 +176,7 @@ class Acceso extends Controller
             return null;
 		}
 		
-		$captcha = new Help\Captcha();
+		$captcha = $this->app->container('captcha');
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
@@ -223,7 +204,7 @@ class Acceso extends Controller
 		}
 
 		// se valida el formaro de las contraseñas
-		$valid = new Help\Valida();
+		$valid = $this->app->container('valida');
 		
 		if (!$valid->contrasenia($password)) {
 			$respuesta['descripcion'] = 'La contraseña ingresada no es válida';
@@ -270,7 +251,7 @@ class Acceso extends Controller
 			
 		}
 		
-		$captcha = new Help\Captcha();
+		$captcha = $this->app->container('captcha');
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
@@ -303,7 +284,7 @@ class Acceso extends Controller
 		}
 		
 		// se valida el formato de los campos ingresados
-		$valid = new Help\Valida();
+		$valid = $this->app->container('valida');
 		
 		if (!$valid->nombreApellido($nombre)) {
 			$respuesta['descripcion'] = 'El nombre no es válido';

@@ -2,7 +2,6 @@
 namespace app\modules\api\controller;
 
 use DMS\Tornado\Controller;
-use DMS\PHPLibs as Help;
 use app\modules\api\model as Modelo;
 
 /**
@@ -30,7 +29,7 @@ class Token extends Controller
 		}
 		
 		// se genera un token aleatorio
-		$cripto = new  Help\Cripto();
+		$cripto = $this->app->container('cripto');
 		$tokenHash = $cripto->crearHash(55);
 		
 		// se registra el token en la base de datos

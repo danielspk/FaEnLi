@@ -1,6 +1,8 @@
 <?php
 namespace app\modules\api\model;
 
+use DMS\Tornado\Tornado;
+
 class Token
 {
 	/* Atributos */
@@ -17,7 +19,7 @@ class Token
 	/* Constructor */
 	public function __construct()
 	{
-		$this->_conex = \DMS\PHPLibs\DataBase::conectar(\DMS\Tornado\Tornado::getInstance()->config('db'));
+        $this->_conex = Tornado::getInstance()->container('conex');
 	}
 	
 	/* Métodos públicos */

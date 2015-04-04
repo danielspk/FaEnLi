@@ -1,6 +1,8 @@
 <?php
 namespace app\modules\instalacion\model;
 
+use DMS\Tornado\Tornado;
+
 class Wizard
 {
 	/* Atributos */
@@ -13,14 +15,14 @@ class Wizard
 	public function setAdminPass($pDato) { $this->_adminPass = $pDato; }
 	
 	/* Constructor */
-	public function __construct($pConex = false)
+	public function __construct($pConex = null)
 	{
-		if (!$pConex)
-			$conex = \DMS\Tornado\Tornado::getInstance()->config('db');
-		else 
-			$conex = $pConex;
-		
-		$this->_conex = \DMS\PHPLibs\DataBase::conectar($conex);
+        $app = Tornado::getInstance();
+
+		if ($pConex)
+			$app->config('db', $pConex);
+
+        $this->_conex = $app->container('conex');
 	}
 	
 	/* Métodos públicos */

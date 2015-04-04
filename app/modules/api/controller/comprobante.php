@@ -3,7 +3,6 @@ namespace app\modules\api\controller;
 
 use DMS\Tornado\Tornado;
 use DMS\Tornado\Controller;
-use DMS\PHPLibs as Help;
 use app\modules\api\model as Modelo;
 
 /**
@@ -56,9 +55,8 @@ class Comprobante extends Controller
 		$modComprobante->registrar();
 		
 		echo json_encode(array('estado' => 'ok', 'detalle' => 'Comprobantes registrados exitosamente'));
-		
 	}
-	
+
 	public function borrar()
 	{
 		if ($this->_contToken->validaCredenciales() === false) {
@@ -70,8 +68,8 @@ class Comprobante extends Controller
 		if ($this->_validaJsonComprobantes($comprobantes, false) === false) {
 			return;
 		}
-		
-		$cripto = new Help\Cripto();
+
+        $cripto = $this->app->container('cripto');
 		$passCript = $this->app->config('passCript');
 		
 		// se borran los comprobantes
@@ -115,12 +113,12 @@ class Comprobante extends Controller
 			$this->_formatoJsonNoValido();
 			return false;
 		}
-		
-		$cripto = new Help\Cripto();
+
+        $cripto = $this->app->container('cripto');
 		$passCript = $this->app->config('passCript');
 		
 		$ciclo = 0;
-		$valida = new Help\Valida();
+        $valida = $this->app->container('valida');
 		
 		foreach($comprobantes->comprobantes as $comprobante) {
 			

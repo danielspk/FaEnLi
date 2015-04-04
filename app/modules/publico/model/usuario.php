@@ -1,6 +1,8 @@
 <?php
 namespace app\modules\publico\model;
 
+use DMS\Tornado\Tornado;
+
 class Usuario
 {
 	/* Atributos */
@@ -23,7 +25,7 @@ class Usuario
 	/* Constructor */
 	public function __construct()
 	{
-		$this->_conex = \DMS\PHPLibs\DataBase::conectar(\DMS\Tornado\Tornado::getInstance()->config('db'));
+        $this->_conex = Tornado::getInstance()->container('conex');
 	}
 	
 	/* Métodos públicos */
