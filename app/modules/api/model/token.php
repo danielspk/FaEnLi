@@ -28,7 +28,8 @@ class Token
 		$this->_eliminarVencidos();
 		
 		$sql = 'INSERT INTO tokens (token, vida, estado) VALUES (:token, :vida, :estado)';
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':token', $this->_token, \PDO::PARAM_STR);
 		$db->bindParam(':vida', $this->_vida, \PDO::PARAM_INT);
@@ -41,7 +42,8 @@ class Token
 	public function verVigencia()
 	{
 		$sql = 'SELECT COUNT(*) AS cantid FROM tokens WHERE estado = true AND token = :token AND vida >= ' . time();
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':token', $this->_token, \PDO::PARAM_STR);
 		$db->execute();

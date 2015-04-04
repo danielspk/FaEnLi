@@ -31,7 +31,7 @@ $app->config('api', array(
 	'apiUser'	=> '$2y$11$OLR8RoUjglXaLdXT3fD/beNv4mA7Mfg6EcBFEz1zahDP4ISdQDxPq',
 	'apiPass'	=> '$2y$11$9qrcWQSOlWAXDJCXTM1cR.KXcmby03r/ivFJSVkmFmFUuGx0g1xhq'
 ));
-		
+
 $app->config('email', array(
 	'smtp'		 => '',
 	'user'       => '',

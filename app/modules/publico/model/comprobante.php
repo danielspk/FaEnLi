@@ -37,7 +37,8 @@ class Comprobante
 			WHERE
 				cu.email = :email
 			';
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':email', $this->_email, \PDO::PARAM_STR);
 		$db->execute();
@@ -74,7 +75,8 @@ class Comprobante
 			ORDER BY
 				c.fecha desc, c.tipo, c.ptoventa, c.numero
 			';
-		
+
+            /** @var \PDOStatement $db */
 			$db = $this->_conex->prepare($sql);			
 			$db->bindParam(':email', $this->_email, \PDO::PARAM_STR);
 
@@ -86,7 +88,8 @@ class Comprobante
 			ORDER BY
 				c.fecha desc, c.tipo, c.ptoventa, c.numero
 			';
-		
+
+            /** @var \PDOStatement $db */
 			$db = $this->_conex->prepare($sql);			
 			
 		}
@@ -118,7 +121,8 @@ class Comprobante
 				c.archivo = :archivo AND
 				cu.email = :email
 		';
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':archivo', $this->_archivo, \PDO::PARAM_STR);
 		$db->bindParam(':email', $this->_email, \PDO::PARAM_STR);

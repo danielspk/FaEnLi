@@ -14,10 +14,10 @@ $app->hook('init', function () use ($app) {
 
 });
 
-$app->hook('404', function () {
+$app->hook('404', function () use ($app) {
 	
 	// se determina si se debe mostrar una vista html o json
-	$valida = new \DMS\PHPLibs\Valida();
+	$valida = $app->container('valida');
 	
 	if ($valida->esAjax()) {
 		echo 'Destino 404';
@@ -30,14 +30,14 @@ $app->hook('404', function () {
 $app->hook('error', function () use ($app) {
 	
 	// se genera un hash del error
-	$cripto = new \DMS\PHPLibs\Cripto();
+	$cripto = $app->container('cripto');
 	$hash = date('YmdHis') . $cripto->crearHash(6);
 	
 	// se guarda error en un archivo de log
 	error_log('#' . $hash . ":\n" . $app->error() . "\n\n", 3, __DIR__ . '/../logs/log.log');
 	
 	// se determina si se debe mostrar una vista html o json
-	$valida = new \DMS\PHPLibs\Valida();
+	$valida = $app->container('valida');
 	
 	if ($valida->esAjax()) {
 		echo 'Código: #' . $hash;

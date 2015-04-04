@@ -93,7 +93,8 @@ class Wizard
 	{
 		
 		$sql = "INSERT INTO usuarios (email, nombre, apellido, clave, root) VALUES (:email, 'Super', 'Usuario', :clave, 1)";
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':email', $this->_adminUser, \PDO::PARAM_STR);
 		$db->bindParam(':clave', $this->_adminPass, \PDO::PARAM_STR);

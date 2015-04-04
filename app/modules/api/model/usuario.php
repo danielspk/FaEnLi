@@ -27,7 +27,8 @@ class Usuario
 	{
 	
 		$sql = 'SELECT email, nombre, apellido FROM usuarios WHERE email like :email AND nombre like :nombre AND apellido like :apellido';
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':email', $this->_email, \PDO::PARAM_STR);
 		$db->bindParam(':nombre', $this->_nombre, \PDO::PARAM_STR);

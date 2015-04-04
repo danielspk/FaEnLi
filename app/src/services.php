@@ -1,7 +1,9 @@
 <?php
+use DMS\Tornado\Service;
 
-$app->register('conex', function () use ($app) {
-    return \DMS\PHPLibs\DataBase::conectar($app->config('db'));
+$app->register('conex.config', $app->config('db'));
+$app->register('conex', function (Service $c) {
+    return \DMS\PHPLibs\DataBase::conectar($c->get('conex.config'));
 });
 
 $app->register('cripto', function () {
@@ -16,9 +18,10 @@ $app->register('captcha', function () {
     return new \DMS\PHPLibs\Captcha();
 });
 
-$app->register('smtpTransport', function () use ($app) {
+$app->register('smtpTransport.config', $app->config('email'));
+$app->register('smtpTransport', function (Service $c) {
 
-    $confEmail = $app->config('email');
+    $confEmail = $c->get('smtpTransport.config');
 
     if ($confEmail['ssl'] == true) {
         return \Swift_SmtpTransport::newInstance($confEmail['smtp'], $confEmail['port'], 'ssl')
@@ -31,8 +34,8 @@ $app->register('smtpTransport', function () use ($app) {
     }
 });
 
-$app->register('smtpMailer', function () use ($app) {
-    return \Swift_Mailer::newInstance($app->container('smtpTransport'));
+$app->register('smtpMailer', function (Service $c) {
+    return \Swift_Mailer::newInstance($c->get('smtpTransport'));
 });
 
 $app->register('smtpMessage', function () {
