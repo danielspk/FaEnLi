@@ -2,11 +2,11 @@
 <html lang="en-ES">
 <head>
 	<meta charset="UTF-8">
-	<base href='<?=URLFRIENDLY?>' />
+    <base href='<?php echo URLFRIENDLY ?>' />
 	<title> Terminos de uso</title>
 	<link rel="shortcut icon" type="image/x-icon" href="./public/img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./public/css/estilos.css" media="all" />
-	<?php $this->loadView('publico|includes/theme'); ?>
+    <?php $app->render('app/modules/Publico/View/includes/theme.tpl.php'); ?>
 </head>
 <body class="bgAcceso">
 	
@@ -17,7 +17,7 @@
 		</header>
 		
 		<div>
-			<?=$terminos;?>
+			<?php echo $terminos ?>
 		</div>
 		
 		<footer>
@@ -25,8 +25,8 @@
 		</footer>
 		
 	</div>
-	
-	<?php $this->loadView('publico|includes/footer'); ?>
+
+    <?php $app->render('app/modules/Publico/View/includes/footer.tpl.php'); ?>
 	
 </body>
 </html>

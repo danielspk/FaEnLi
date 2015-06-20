@@ -2,18 +2,18 @@
 <html lang="en-ES">
 <head>
 	<meta charset="UTF-8">
-	<base href='<?=URLFRIENDLY?>' />
+    <base href='<?php echo URLFRIENDLY ?>' />
 	<title> Sus Comprobantes</title>
 	<link rel="shortcut icon" type="image/x-icon" href="./public/img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./public/css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="./public/css/estilos.css" media="all" />
-	<?php $this->loadView('publico|includes/theme'); ?>
+    <?php $app->render('app/modules/Publico/View/includes/theme.tpl.php'); ?>
 </head>
 <body class="bgPanel">
 	
 	<div class="pnlHeader">
 		
-		<div class="txtUser"><?= $nombre . ' ' . $apellido . ' &lt;' . $email . '&gt;'; ?></div>
+		<div class="txtUser"><?php echo $nombre . ' ' . $apellido . ' &lt;' . $email . '&gt;' ?></div>
 		
 		<div class="btnLogout">
 			<a href="./logout">Cerrar Sesión<i class="fa fa-power-off"></i></a>
@@ -46,21 +46,21 @@
 				</thead>
 				<tbody>
 					<?php $cant = 0; ?>
-					<?php foreach($comprobantes as $row) { ?>
+					<?php foreach($comprobantes as $row) : ?>
 					<?php $cant++; ?>
-					<tr <?= ($cant % 2 == 0) ? ' class="trPar"' : '' ?>>
-						<td><?= $row->fecha; ?></td>
-						<td><?= $row->tipo; ?></td>
-						<td><?= str_pad($row->ptoventa, 4, '0', STR_PAD_LEFT) . '-' . str_pad($row->numero, 8, '0', STR_PAD_LEFT); ?></td>
-						<td><?= $row->moneda; ?></td>
-						<td>$ <?= number_format($row->importe, 2, '.', ','); ?></td>
+					<tr <?php echo ($cant % 2 == 0) ? ' class="trPar"' : '' ?>>
+						<td><?php echo $row->fecha ?></td>
+						<td><?php echo $row->tipo ?></td>
+						<td><?php echo str_pad($row->ptoventa, 4, '0', STR_PAD_LEFT) . '-' . str_pad($row->numero, 8, '0', STR_PAD_LEFT) ?></td>
+						<td><?php echo $row->moneda ?></td>
+						<td>$ <?php echo number_format($row->importe, 2, '.', ',') ?></td>
 						<td class="centrado">
-							<a href="./comprobante/<?= $row->archivo; ?>" target="_blank">
+							<a href="./comprobante/<?php echo $row->archivo ?>" target="_blank">
 								<img src="./public/img/pdf.png" alt="Descarga" />
 							</a>
 						</td>
 					</tr>
-					<?php } ?>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 			

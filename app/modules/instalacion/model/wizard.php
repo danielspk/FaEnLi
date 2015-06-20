@@ -1,5 +1,7 @@
 <?php
-namespace app\modules\instalacion\model;
+namespace App\Modules\Instalacion\Model;
+
+use DMS\Tornado\Tornado;
 
 class Wizard
 {
@@ -13,20 +15,21 @@ class Wizard
 	public function setAdminPass($pDato) { $this->_adminPass = $pDato; }
 	
 	/* Constructor */
-	public function __construct($pConex = false)
+	public function __construct($pConex = null)
 	{
-		if (!$pConex)
-			$conex = \DMS\Tornado\Tornado::getInstance()->config('db');
-		else 
-			$conex = $pConex;
-		
-		$this->_conex = \DMS\Libs\DataBase::conectar($conex);
+        $app = Tornado::getInstance();
+
+		if ($pConex)
+            $app->register('conex.config', $pConex);
+
+        $this->_conex = $app->container('conex');
 	}
 	
 	/* Métodos públicos */
 	public function crearTablas()
 	{
-		
+		// se eliminan tablas existentes .....
+
 		//tabla de comprobantes
 		$sql = '
 		CREATE TABLE IF NOT EXISTS `comprobantes` (
@@ -82,18 +85,16 @@ class Wizard
 		';
 		$this->_conex->exec($sql);
 		unset($sql);
-		
-		
-	
+
 		$this->_conex->desconectar();
-		
 	}
 
 	public function registrarSuperusuario()
 	{
 		
 		$sql = "INSERT INTO usuarios (email, nombre, apellido, clave, root) VALUES (:email, 'Super', 'Usuario', :clave, 1)";
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':email', $this->_adminUser, \PDO::PARAM_STR);
 		$db->bindParam(':clave', $this->_adminPass, \PDO::PARAM_STR);

@@ -1,20 +1,20 @@
 <?php
-namespace app\modules\api\controller;
+namespace App\Modules\Api\Controller;
 
-use app\modules\api\model as modelo;
-use app\modules\api\controller as controlador;
+use DMS\Tornado\Tornado;
+use DMS\Tornado\Controller;
 
-class Log extends \DMS\Tornado\Controller
+class Log extends Controller
 {
 	
 	private $_contToken;
 	private $_path;
 	
-	public function __construct()
+	public function __construct(Tornado $pApp)
 	{
-		$this->loadController('api|token');
-		
-		$this->_contToken = new controlador\Token();
+        parent::__construct($pApp);
+
+		$this->_contToken = new Token($pApp);
 		$this->_path = __DIR__ . '/../../../log/log.log';
 	}
 	

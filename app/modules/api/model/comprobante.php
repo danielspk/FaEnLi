@@ -1,5 +1,7 @@
 <?php
-namespace app\modules\api\model;
+namespace App\Modules\Api\Model;
+
+use DMS\Tornado\Tornado;
 
 class Comprobante
 {
@@ -19,13 +21,13 @@ class Comprobante
 	/* Constructor */
 	public function __construct()
 	{
-		$this->_conex = \DMS\Libs\DataBase::conectar(\DMS\Tornado\Tornado::getInstance()->config('db'));
+        $this->_conex = Tornado::getInstance()->container('conex');
 	}
 	
 	/* Métodos públicos */
 	public function registrar()
 	{
-		
+
 		$this->_conex->beginTransaction();
 		
 		foreach($this->_comprobantes->comprobantes as $comprobante) {
@@ -34,6 +36,8 @@ class Comprobante
 			
 			$sql = 'INSERT INTO comprobantes (tipo, ptoventa, numero, fecha, moneda, importe, archivo)
 					VALUES (:tipo, :ptoventa, :numero, :fecha, :moneda, :importe, :archivo)';
+
+            /** @var \PDOStatement $db */
 			$db = $this->_conex->prepare($sql);
 			$db->bindParam(':tipo', $comprobante->tipo, \PDO::PARAM_STR);
 			$db->bindParam(':ptoventa', $comprobante->ptoventa, \PDO::PARAM_INT);
@@ -51,6 +55,8 @@ class Comprobante
 				
 				$sql = 'INSERT INTO comprobantes_usuarios (tipo, ptoventa, numero, email)
 					VALUES (:tipo, :ptoventa, :numero, :email)';
+
+                /** @var \PDOStatement $db */
 				$db = $this->_conex->prepare($sql);
 				$db->bindParam(':tipo', $comprobante->tipo, \PDO::PARAM_STR);
 				$db->bindParam(':ptoventa', $comprobante->ptoventa, \PDO::PARAM_INT);
@@ -88,6 +94,8 @@ class Comprobante
 	public function getArchivo()
 	{
 		$sql = 'SELECT archivo FROM comprobantes WHERE tipo = :tipo AND ptoventa = :ptoventa AND numero = :numero';
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':tipo', $this->_tipo, \PDO::PARAM_STR);
 		$db->bindParam(':ptoventa', $this->_ptoventa, \PDO::PARAM_INT);
@@ -107,6 +115,8 @@ class Comprobante
 		$comprobante = $pComprobante;
 		
 		$sql = 'DELETE FROM comprobantes WHERE tipo = :tipo AND ptoventa = :ptoventa AND numero = :numero';
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':tipo', $comprobante->tipo, \PDO::PARAM_STR);
 		$db->bindParam(':ptoventa', $comprobante->ptoventa, \PDO::PARAM_INT);
@@ -117,6 +127,8 @@ class Comprobante
 		unset($db);
 
 		$sql = 'DELETE FROM comprobantes_usuarios WHERE tipo = :tipo AND ptoventa = :ptoventa AND numero = :numero';
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':tipo', $comprobante->tipo, \PDO::PARAM_STR);
 		$db->bindParam(':ptoventa', $comprobante->ptoventa, \PDO::PARAM_INT);

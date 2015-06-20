@@ -1,31 +1,30 @@
 <?php
-namespace app\modules\instalacion\controller;
+namespace App\Modules\Instalacion\Controller;
 
-use app\modules\instalacion\model as modelo;
+use DMS\Tornado\Controller;
+use App\Modules\Instalacion\Model\Wizard as WizardMod;
 
-class Wizard extends \DMS\Tornado\Controller
+class Wizard extends Controller
 {
 
 	public function instalar()
 	{
 		if (isset($_POST['btnInstalar'])) {
-			$this->_procesarInstalacion();
+			$this->procesarInstalacion();
 			return;
 		}
-		
-		$this->loadView('instalacion|wizard');
+
+        $this->app->render('app/modules/Instalacion/View/wizard.tpl.php', ['app' => $this->app]);
 	}
 
-	private function _procesarInstalacion()
+	private function procesarInstalacion()
 	{
 		// rutas de archivos de configuración
 		$pathC = __DIR__ . '/../../../config/config.php';
 		$pathH = __DIR__ . '/../../../../.htaccess';
 		
 		// se crea la estructura de la base de datos
-		$this->loadModel('instalacion|wizard');
-	
-		$modWizard = new modelo\Wizard(array(
+		$modWizard = new WizardMod(array(
 			'motor'		=> 'MYSQL',
 			'host'      => $_POST['db_host'],
 			'base'      => $_POST['db_base'],
@@ -33,6 +32,8 @@ class Wizard extends \DMS\Tornado\Controller
 			'pass'      => $_POST['db_pass'],
 			'collation' => 'utf8'
 		));
+
+        // si se selecciono generar estructura de tablas ......
 		$modWizard->crearTablas();
 		
 		// se ingresa al super usuario en la base de datos
@@ -45,8 +46,8 @@ class Wizard extends \DMS\Tornado\Controller
 		// se encriptan los datos de la API
 		$_POST['tokenUser'] = password_hash($_POST['tokenUser'], PASSWORD_BCRYPT, array('cost' => 11));
 		$_POST['tokenPass'] = password_hash($_POST['tokenPass'], PASSWORD_BCRYPT, array('cost' => 11));
-		$_POST['apiUser'] = password_hash($_POST['apiUser'], PASSWORD_BCRYPT, array('cost' => 11));
-		$_POST['apiPass'] = password_hash($_POST['apiPass'], PASSWORD_BCRYPT, array('cost' => 11));
+		$_POST['apiUser']   = password_hash($_POST['apiUser'], PASSWORD_BCRYPT, array('cost' => 11));
+		$_POST['apiPass']   = password_hash($_POST['apiPass'], PASSWORD_BCRYPT, array('cost' => 11));
 		
 		// se recupera el texto del archivo de configuracion
 		// y se reemplazan los valores por default por los de la instalación
@@ -97,7 +98,6 @@ class Wizard extends \DMS\Tornado\Controller
 		
 		// se finaliza el script
 		echo json_encode(array('estado' =>'ok', 'url'=> $_POST['urlfriendly']));
-		
 	}
 	
 }

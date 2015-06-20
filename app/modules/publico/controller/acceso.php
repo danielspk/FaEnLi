@@ -1,9 +1,11 @@
 <?php
-namespace app\modules\publico\controller;
+namespace App\Modules\Publico\Controller;
 
-use app\modules\publico\model as modelo;
+use DMS\Tornado\Controller;
+use App\Modules\Publico\Model\Usuario as UsuarioMod;
+use App\Modules\Publico\Model\Comprobante as ComprobanteMod;
 
-class Acceso extends \DMS\Tornado\Controller
+class Acceso extends Controller
 {
 	
 	public function logout()
@@ -18,44 +20,43 @@ class Acceso extends \DMS\Tornado\Controller
 	
     public function login()
     {
-		$this->_validaSesionIniciada();
-		
-		$this->loadView('publico|login');
+		$this->validaSesionIniciada();
+
+        $this->app->render('app/modules/Publico/View/login.tpl.php', ['app' => $this->app]);
     }
 	
 	public function procesarLogin()
 	{
 
-		$email = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
+		$email    = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
 		$password = filter_input(INPUT_POST, 'txtPassword', FILTER_SANITIZE_STRING);
-		$codigo = filter_input(INPUT_POST, 'txtCodigo', FILTER_SANITIZE_STRING);
+		$codigo   = filter_input(INPUT_POST, 'txtCodigo', FILTER_SANITIZE_STRING);
 		
 		$respuesta['estado'] = 'error';
 		
 		if ($email === null || $password === null || $codigo === null) {
-			
 			$respuesta['descripcion'] = 'Solicitud no válida';
-			return $this->_imprimeJSON($respuesta);
-			
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
-		$captcha = new \DMS\Libs\Captcha();
+		$captcha = $this->app->container('captcha');
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
-		
-		$this->loadModel('publico|usuario');
-		
-		$usuario = new modelo\Usuario();
+
+		$usuario = new UsuarioMod();
 		$usuario->setEmail($email);
 		
 		$usrDatos = $usuario->recuperarDatos();
 		
 		if ($usrDatos === false || password_verify($password, $usrDatos->clave) === false) {
 			$respuesta['descripcion'] = 'Los datos suministrados no son válidos';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 
 		$_SESSION['iniciada'] = true;
@@ -66,22 +67,20 @@ class Acceso extends \DMS\Tornado\Controller
 		
 		$respuesta['estado'] = 'ok';
 		$respuesta['url'] = URLFRIENDLY . 'panel';
-		$this->_imprimeJSON($respuesta);
+		$this->imprimeJSON($respuesta);
 		
 	}
 	
 	public function recupero()
 	{
+		$this->validaSesionIniciada();
 
-		$this->_validaSesionIniciada();
-		
-		$this->loadView('publico|recupero');
+        $this->app->render('app/modules/Publico/View/recupero.tpl.php', ['app' => $this->app]);
 	}
 	
 	public function procesarRecupero()
 	{
-		
-		$email = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
+		$email  = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
 		$codigo = filter_input(INPUT_POST, 'txtCodigo', FILTER_SANITIZE_STRING);
 		
 		$respuesta['estado'] = 'error';
@@ -89,31 +88,31 @@ class Acceso extends \DMS\Tornado\Controller
 		if ($email === null || $codigo === null) {
 			
 			$respuesta['descripcion'] = 'Solicitud no válida';
-			return $this->_imprimeJSON($respuesta);
-			
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
-		$captcha = new \DMS\Libs\Captcha();
+		$captcha = $this->app->container('captcha');
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
-		
-		$this->loadModel('publico|usuario');
 
-		$usuario = new modelo\Usuario();
+		$usuario = new UsuarioMod();
 		$usuario->setEmail($email);
 		
 		$usrDatos = $usuario->recuperarDatos();
 		
 		if ($usrDatos === false) {
 			$respuesta['descripcion'] = 'Los datos suministrados no son válidos';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		// se genera y guarda el código de recupero de contraseña
-		$cripto = new \DMS\Libs\Cripto();
+		$cripto = $this->app->container('cripto');
 	
 		$hash = $cripto->crearHash(98);
 		
@@ -129,27 +128,11 @@ class Acceso extends \DMS\Tornado\Controller
 		$txtEmail = str_replace('[[url]]', URLFRIENDLY . 'restablecer/' . $hash, $txtEmail);
 		
 		// se remite un mail al cliente
-		require __DIR__ . '/../../../vendor/swiftmailer/swift_required.php';
-		
-		$confEmail = \DMS\Tornado\Tornado::getInstance()->config('email');
-		
-		if ($confEmail['ssl'] == true) {
-			
-			$sTransport = \Swift_SmtpTransport::newInstance($confEmail['smtp'], $confEmail['port'], 'ssl')
-			->setUsername($confEmail['user'])
-			->setPassword($confEmail['pass']);
-			
-		} else {
-			
-			$sTransport = \Swift_SmtpTransport::newInstance($confEmail['smtp'], $confEmail['port'])
-			->setUsername($confEmail['user'])
-			->setPassword($confEmail['pass']);
-			
-		}
-		
-		$sMailer = \Swift_Mailer::newInstance($sTransport);
-		
-		$sMessage = \Swift_Message::newInstance('Restrablecer constraseña')
+		$confEmail = $this->app->config('email');
+
+        $sMailer = $this->app->container('smtpMailer');
+        $sMessage = $this->app->container('smtpMessage');
+		$sMessage->setSubject('Restrablecer constraseña')
 			->setFrom(array($confEmail['fromEmail'] => $confEmail['fromNombre']))
 			->setTo(array($usrDatos->email))
 			->setBody($txtEmail, 'text/html');
@@ -159,66 +142,64 @@ class Acceso extends \DMS\Tornado\Controller
 		// se finaliza exitosamente la acción
 		$respuesta['estado'] = 'ok';
 		$respuesta['url'] = URLFRIENDLY . 'login';
-		$this->_imprimeJSON($respuesta);
-		
+		$this->imprimeJSON($respuesta);
 	}
 	
 	public function restablecer($pCodigoRes = null)
 	{
+		$this->validaSesionIniciada();
 
-		$this->_validaSesionIniciada();
-		
-		$this->loadView('publico|restablecer', array('codigoRes' => $pCodigoRes));
+        $this->app->render('app/modules/Publico/View/restablecer.tpl.php', ['app' => $this->app, 'codigoRes' => $pCodigoRes]);
 	}
 	
 	public function procesarRestablecer()
 	{
-	
-		$email = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
-		$password = filter_input(INPUT_POST, 'txtPassword', FILTER_SANITIZE_STRING);
+		$email     = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
+		$password  = filter_input(INPUT_POST, 'txtPassword', FILTER_SANITIZE_STRING);
 		$password2 = filter_input(INPUT_POST, 'txtPassword2', FILTER_SANITIZE_STRING);
-		$codigo = filter_input(INPUT_POST, 'txtCodigo', FILTER_SANITIZE_STRING);
+		$codigo    = filter_input(INPUT_POST, 'txtCodigo', FILTER_SANITIZE_STRING);
 		$codigoRes = filter_input(INPUT_POST, 'txtCodigoRes', FILTER_SANITIZE_STRING);
 		
 		$respuesta['estado'] = 'error';
 		
 		if ($email === null || $password === null || $password2 === null || $codigo === null || $codigoRes === null) {
-			
 			$respuesta['descripcion'] = 'Solicitud no válida';
-			return $this->_imprimeJSON($respuesta);
-			
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
-		$captcha = new \DMS\Libs\Captcha();
+		$captcha = $this->app->container('captcha');
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
-
-		$this->loadModel('publico|usuario');
 		
-		$usuario = new modelo\Usuario();
+		$usuario = new UsuarioMod();
 		$usuario->setEmail($email);
 		$usuario->setResetCodigo($codigoRes);
 		$usuario->setResetVida(time());
 	
 		if ($usuario->validarCodigoRestablecimiento() !== true) {
 			$respuesta['descripcion'] = 'Datos no válidos';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		if ($password !== $password2) {
 			$respuesta['descripcion'] = 'Las contraseñas no son iguales';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 
 		// se valida el formaro de las contraseñas
-		$valid = new \DMS\Libs\Valida();
+		$valid = $this->app->container('valida');
 		
 		if (!$valid->contrasenia($password)) {
 			$respuesta['descripcion'] = 'La contraseña ingresada no es válida';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		// se actualiza la contraseña
@@ -228,97 +209,99 @@ class Acceso extends \DMS\Tornado\Controller
 		// se finaliza exitosamente
 		$respuesta['estado'] = 'ok';
 		$respuesta['url'] = URLFRIENDLY . 'login';
-		$this->_imprimeJSON($respuesta);
-		
+		$this->imprimeJSON($respuesta);
 	}
 	
 	public function registro()
 	{
-		$this->_validaSesionIniciada();
-		
-		$this->loadView('publico|registro');
+		$this->validaSesionIniciada();
+
+        $this->app->render('app/modules/Publico/View/registro.tpl.php', ['app' => $this->app]);
 	}
 	
 	public function procesarRegistro()
 	{
-
-		$nombre = filter_input(INPUT_POST, 'txtNombre', FILTER_SANITIZE_STRING);
-		$apellido = filter_input(INPUT_POST, 'txtApellido', FILTER_SANITIZE_STRING);
-		$email = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
-		$password = filter_input(INPUT_POST, 'txtPassword', FILTER_SANITIZE_STRING);
-		$password2 = filter_input(INPUT_POST, 'txtPassword2', FILTER_SANITIZE_STRING);
-		$codigo = filter_input(INPUT_POST, 'txtCodigo', FILTER_SANITIZE_STRING);
+		$nombre      = filter_input(INPUT_POST, 'txtNombre', FILTER_SANITIZE_STRING);
+		$apellido    = filter_input(INPUT_POST, 'txtApellido', FILTER_SANITIZE_STRING);
+		$email       = filter_input(INPUT_POST, 'txtEmail', FILTER_SANITIZE_STRING);
+		$password    = filter_input(INPUT_POST, 'txtPassword', FILTER_SANITIZE_STRING);
+		$password2   = filter_input(INPUT_POST, 'txtPassword2', FILTER_SANITIZE_STRING);
+		$codigo      = filter_input(INPUT_POST, 'txtCodigo', FILTER_SANITIZE_STRING);
 		$terminosuso = filter_input(INPUT_POST, 'chkLicencia', FILTER_SANITIZE_NUMBER_INT);
 		
 		$respuesta['estado'] = 'error';
 		
 		if ($nombre === null || $apellido === null || $email === null || $password === null || $password2 === null || $codigo === null) {
-			
 			$respuesta['descripcion'] = 'Solicitud no válida';
-			return $this->_imprimeJSON($respuesta);
-			
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
-		$captcha = new \DMS\Libs\Captcha();
+		$captcha = $this->app->container('captcha');
 		
 		if ($captcha->validarCaptcha($codigo) === false) {
 			$respuesta['descripcion'] = 'El código captcha no es correcto';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 
-		$this->loadModel('publico|usuario');
-		
-		$usuario = new modelo\Usuario();
+		$usuario = new UsuarioMod();
 		$usuario->setEmail($email);
 		
 		$usrDatos = $usuario->recuperarDatos();
 		
 		if ($usrDatos !== false) {
 			$respuesta['descripcion'] = 'El usuario se encuentra registrado';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 
-		$this->loadModel('publico|comprobante');
-		
-		$comprobante = new modelo\Comprobante();
+		$comprobante = new ComprobanteMod();
 		$comprobante->setEmail($email);
 		
 		if ($comprobante->recuperarCantidadComprobantes() == 0) {
 			$respuesta['descripcion'] = 'No dispone de compras. No es posible registrarse';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		// se valida el formato de los campos ingresados
-		$valid = new \DMS\Libs\Valida();
+		$valid = $this->app->container('valida');
 		
 		if (!$valid->nombreApellido($nombre)) {
 			$respuesta['descripcion'] = 'El nombre no es válido';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		if (!$valid->nombreApellido($apellido)) {
 			$respuesta['descripcion'] = 'El apellido no es válido';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		if (!$valid->email($email)) {
 			$respuesta['descripcion'] = 'La dirección de email no es válida';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 
 		if ($password !== $password2) {
 			$respuesta['descripcion'] = 'Las contraseñas no son iguales';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		if (!$valid->contrasenia($password)) {
 			$respuesta['descripcion'] = 'La contraseña ingresada no es válida';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		if ($terminosuso != 1) {
 			$respuesta['descripcion'] = 'Debe aceptarlos términos y condiciones de uso';
-			return $this->_imprimeJSON($respuesta);
+			$this->imprimeJSON($respuesta);
+            return null;
 		}
 		
 		// se ingresa el usuario
@@ -330,18 +313,17 @@ class Acceso extends \DMS\Tornado\Controller
 		// se finaliza exitosamente
 		$respuesta['estado'] = 'ok';
 		$respuesta['url'] = URLFRIENDLY . 'login';
-		$this->_imprimeJSON($respuesta);
-		
+		$this->imprimeJSON($respuesta);
 	}
 	
 	public function terminos()
 	{
 		$txtTerminos = file_get_contents(__DIR__ . '/../../../config/templates/licencia-de-uso.html');
-		
-		$this->loadView('publico|terminos', array('terminos'=>$txtTerminos));
+
+        $this->app->render('app/modules/Publico/View/terminos.tpl.php', ['app' => $this->app, 'terminos'=>$txtTerminos]);
 	}
 	
-	private function _validaSesionIniciada()
+	private function validaSesionIniciada()
 	{
 		session_start();
 		
@@ -350,18 +332,8 @@ class Acceso extends \DMS\Tornado\Controller
 			exit();
 		}
 	}
-	
-	private function _validaSesionExistente()
-	{
-		session_start();
-		
-		if (!isset($_SESSION['iniciada']) || $_SESSION['iniciada'] !== true) {
-			header('Location: ' . URLFRIENDLY . 'login');
-			exit();
-		}
-	}
-	
-	private function _imprimeJSON($json)
+
+	private function imprimeJSON($json)
 	{
 		echo json_encode($json);
 	}

@@ -1,5 +1,7 @@
 <?php
-namespace app\modules\api\model;
+namespace App\Modules\Api\Model;
+
+use DMS\Tornado\Tornado;
 
 class Usuario
 {
@@ -17,7 +19,7 @@ class Usuario
 	/* Constructor */
 	public function __construct()
 	{
-		$this->_conex = \DMS\Libs\DataBase::conectar(\DMS\Tornado\Tornado::getInstance()->config('db'));
+        $this->_conex = Tornado::getInstance()->container('conex');
 	}
 	
 	/* Métodos públicos */
@@ -25,7 +27,8 @@ class Usuario
 	{
 	
 		$sql = 'SELECT email, nombre, apellido FROM usuarios WHERE email like :email AND nombre like :nombre AND apellido like :apellido';
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':email', $this->_email, \PDO::PARAM_STR);
 		$db->bindParam(':nombre', $this->_nombre, \PDO::PARAM_STR);

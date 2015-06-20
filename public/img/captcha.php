@@ -1,10 +1,10 @@
 <?php
 
 // se incluye la librería CaptchaDMS
-require('../../app/vendor/dms-libs/captcha.php');
+require('../../app/vendor/danielspk/phplibs/captcha.php');
 
 // se instancia la clase CaptchaDMS
-$captcha = new \DMS\Libs\Captcha();
+$captcha = new \DMS\PHPLibs\Captcha();
 
 // se configura el captcha
 $captcha->puntos = 0;

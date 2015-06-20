@@ -1,5 +1,7 @@
 <?php
-namespace app\modules\publico\model;
+namespace App\Modules\Publico\Model;
+
+use DMS\Tornado\Tornado;
 
 class Comprobante
 {
@@ -15,7 +17,7 @@ class Comprobante
 	/* Constructor */
 	public function __construct()
 	{
-		$this->_conex = \DMS\Libs\DataBase::conectar(\DMS\Tornado\Tornado::getInstance()->config('db'));
+        $this->_conex = Tornado::getInstance()->container('conex');
 	}
 	
 	/* Métodos públicos */
@@ -35,7 +37,8 @@ class Comprobante
 			WHERE
 				cu.email = :email
 			';
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':email', $this->_email, \PDO::PARAM_STR);
 		$db->execute();
@@ -72,7 +75,8 @@ class Comprobante
 			ORDER BY
 				c.fecha desc, c.tipo, c.ptoventa, c.numero
 			';
-		
+
+            /** @var \PDOStatement $db */
 			$db = $this->_conex->prepare($sql);			
 			$db->bindParam(':email', $this->_email, \PDO::PARAM_STR);
 
@@ -84,7 +88,8 @@ class Comprobante
 			ORDER BY
 				c.fecha desc, c.tipo, c.ptoventa, c.numero
 			';
-		
+
+            /** @var \PDOStatement $db */
 			$db = $this->_conex->prepare($sql);			
 			
 		}
@@ -116,7 +121,8 @@ class Comprobante
 				c.archivo = :archivo AND
 				cu.email = :email
 		';
-		
+
+        /** @var \PDOStatement $db */
 		$db = $this->_conex->prepare($sql);
 		$db->bindParam(':archivo', $this->_archivo, \PDO::PARAM_STR);
 		$db->bindParam(':email', $this->_email, \PDO::PARAM_STR);
