@@ -1,5 +1,5 @@
 <?php
-namespace app\modules\publico\model;
+namespace App\Modules\Publico\Model;
 
 use DMS\Tornado\Tornado;
 

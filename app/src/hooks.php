@@ -2,15 +2,21 @@
 
 $app->hook('init', function () use ($app) {
 
-	// se determina si se debe iniciar el instalador del sistema
-	if (URLFRIENDLY === '[[urlfriendly]]') {
-		$app->forwardModule('instalacion|wizard|instalar');
-		exit();
-	}
+    if (URLFRIENDLY !== '[[urlfriendly]]') {
+        // se setea la configuración de zona y hora
+        setlocale(LC_TIME, $app->config('locale'));
+        date_default_timezone_set($app->config('timezone'));
+    }
 
-    // se setea la configuración de zona y hora
-    setlocale(LC_TIME, $app->config('locale'));
-    date_default_timezone_set($app->config('timezone'));
+});
+
+$app->hook('before', function () use ($app) {
+
+    // se determina si se debe iniciar el instalador del sistema
+    if (URLFRIENDLY === '[[urlfriendly]]') {
+        $app->forwardModule('instalacion|wizard|instalar');
+        return false;
+    }
 
 });
 
@@ -22,7 +28,7 @@ $app->hook('404', function () use ($app) {
 	if ($valida->esAjax()) {
 		echo 'Destino 404';
 	} else {
-		require __DIR__ . '/../modules/publico/view/404.tpl.php';
+        $this->app->render('app/modules/Publico/View/404.tpl.php', ['app' => $this->app]);
 	}
 	
 });
@@ -42,7 +48,7 @@ $app->hook('error', function () use ($app) {
 	if ($valida->esAjax()) {
 		echo 'Código: #' . $hash;
 	} else {
-		require __DIR__ . '/../modules/publico/view/error.tpl.php';
+        $this->app->render('app/modules/Publico/View/error.tpl.php', ['app' => $this->app]);
 	}
 
 });

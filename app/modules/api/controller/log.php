@@ -1,5 +1,5 @@
 <?php
-namespace app\modules\api\controller;
+namespace App\Modules\Api\Controller;
 
 use DMS\Tornado\Tornado;
 use DMS\Tornado\Controller;
@@ -14,8 +14,6 @@ class Log extends Controller
 	{
         parent::__construct($pApp);
 
-		$this->loadController('api|token');
-		
 		$this->_contToken = new Token($pApp);
 		$this->_path = __DIR__ . '/../../../log/log.log';
 	}

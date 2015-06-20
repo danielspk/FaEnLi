@@ -3,8 +3,7 @@
  * -----------------------------------------------------------------------------------------------------------|
  * TORNADO-PHP | Skeleton Application                                                                         |
  *                                                                                                            |
- * Tornado PHP es un Micro Framework que permite implementar el                                               |
- * patrón HMVC y/o servicios REST.                                                                            |
+ * Tornado PHP es un Micro Framework que permite implementar el patrón HMVC y/o servicios REST.               |
  *                                                                                                            |
  * -----------------------------------------------------------------------------------------------------------|
  * ATENCIÓN: Edite bajo su riego, el tornado lo puedo arrasar.                                                |

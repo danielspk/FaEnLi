@@ -1,12 +1,12 @@
 <?php
-namespace app\modules\api\controller;
+namespace App\Modules\Api\Controller;
 
 use DMS\Tornado\Controller;
-use app\modules\api\model as Modelo;
+use App\Modules\Api\Model\Token as TokenMod;
 
 /**
  * Class Token
- * @package app\modules\api\controller
+ * @package App\Modules\Api\Controller
  */
 class Token extends Controller
 {
@@ -33,9 +33,7 @@ class Token extends Controller
 		$tokenHash = $cripto->crearHash(55);
 		
 		// se registra el token en la base de datos
-		$this->loadModel('api|token');
-		
-		$token = new Modelo\Token();
+		$token = new TokenMod();
 		$token->setToken($tokenHash);
 		$token->setVida(time() + $credenciales['tokenVida']);
 		$token->setEstado($estado);
@@ -54,9 +52,7 @@ class Token extends Controller
 		$pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
 		
 		// se determina si el token esta vigente
-		$this->loadModel('api|token');
-		
-		$token = new Modelo\Token();
+		$token = new TokenMod();
 		$token->setToken($tokenHash);
 		
 		if ($token->verVigencia() == false) {

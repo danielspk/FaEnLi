@@ -1,5 +1,5 @@
 <?php
-namespace app\modules\instalacion\model;
+namespace App\Modules\Instalacion\Model;
 
 use DMS\Tornado\Tornado;
 
@@ -20,7 +20,7 @@ class Wizard
         $app = Tornado::getInstance();
 
 		if ($pConex)
-			$app->config('db', $pConex);
+            $app->register('conex.config', $pConex);
 
         $this->_conex = $app->container('conex');
 	}

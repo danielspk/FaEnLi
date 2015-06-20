@@ -1,19 +1,17 @@
 <?php
-namespace app\modules\publico\controller;
+namespace App\Modules\Publico\Controller;
 
 use DMS\Tornado\Controller;
-use app\modules\publico\model as Modelo;
+use App\Modules\Publico\Model\Comprobante as ComprobanteMod;
 
 class Comprobante extends Controller
 {
 	
 	public function panel()
 	{
-		$this->_validaSesionExistente();
-		
-		$this->loadModel('publico|comprobante');
-		
-		$comprobante = new Modelo\Comprobante();
+		$this->validaSesionExistente();
+
+		$comprobante = new ComprobanteMod();
 		
 		if ($_SESSION['usrRoot'])
 			$comprobante->setEmail('ALL');
@@ -23,26 +21,25 @@ class Comprobante extends Controller
 		$comprobantes = $comprobante->recuperarComprobantes();
 		
 		$vars = array(
+            'app' => $this->app,
 			'nombre' => $_SESSION['usrNombre'],
 			'apellido' => $_SESSION['usrApellido'],
 			'email' => $_SESSION['usrEmail'],
 			'comprobantes' => $comprobantes
 		);
-		
-		$this->loadView('publico|panel', $vars);
+
+        $this->app->render('app/modules/Publico/View/panel.tpl.php', $vars);
 	}
 	
     public function descarga($pPDF = null)
     {
 		
-		$this->_validaSesionExistente();
+		$this->validaSesionExistente();
 		
 		// se validan permisos de descarga
 		if (!$_SESSION['usrRoot']) {
-			
-			$this->loadModel('publico|comprobante');
 
-			$modComprobante = new Modelo\Comprobante();
+			$modComprobante = new ComprobanteMod();
 			$modComprobante->setEmail($_SESSION['usrEmail']);
 			$modComprobante->setArchivo($pPDF);
 			
@@ -61,7 +58,7 @@ class Comprobante extends Controller
 		$path = __DIR__ . '/../../../../protected/' . $pdf;
 		
 		if (file_exists($path) == false) {
-			$this->loadView('publico|noencontrado');
+            $this->app->render('app/modules/Publico/View/noencontrado.tpl.php', ['app' => $this->app]);
 			return;
 		}
 		
@@ -70,10 +67,9 @@ class Comprobante extends Controller
 		header('Content-Disposition: attachment; filename='. $pdf);
 		header('Content-Length: ' . $length);
 		readfile($path);
-		
     }
 	
-	private function _validaSesionExistente()
+	private function validaSesionExistente()
 	{
 		session_start();
 

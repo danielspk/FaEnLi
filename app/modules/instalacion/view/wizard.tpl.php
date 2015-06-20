@@ -2,7 +2,7 @@
 <html lang="en-ES">
 <head>
 	<meta charset="UTF-8">
-	<base href='<?= str_replace('index.php', '', $_SERVER['PHP_SELF']) ?>' />
+	<base href='<?php echo str_replace('index.php', '', $_SERVER['PHP_SELF']) ?>' />
 	<title> Instalación FaEnLi</title>
 	<link rel="shortcut icon" type="image/x-icon" href="./public/img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./public/css/font-awesome.min.css" media="all" />
@@ -11,7 +11,7 @@
 </head>
 <body class="bgAcceso">
 	
-	<?php $this->loadView('publico|includes/notificaciones'); ?>
+	<?php $app->render('app/modules/Publico/View/includes/notificaciones.tpl.php'); ?>
 	
 	<div class="pnlInstalacion">
 		
@@ -84,9 +84,9 @@
 				<div class="form-element">
 					<label class="conTexto" for="tokenVida"><i class="fa fa-clock-o"></i>Vida del Token (segs):</label>
 					<select name="tokenVida" id="tokenVida">
-						<?php for ($i=15; $i<60; $i++) { ?>
-						<option value="<?=$i?>"><?=$i?></option>
-						<?php }?>
+						<?php for ($i = 15; $i < 60; $i++) : ?>
+						<option value="<?php echo $i ?>"><?php echo $i ?></option>
+						<?php endfor; ?>
 					</select>
 				</div>
 				
@@ -196,7 +196,7 @@
 
 	</div>
 	
-	<?php $this->loadView('publico|includes/footer'); ?>
+	<?php $app->render('app/modules/Publico/View/includes/footer.tpl.php'); ?>
 	
 	<script type="text/javascript" src="./public/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="./public/js/comun.js"></script>

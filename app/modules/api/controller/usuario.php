@@ -1,9 +1,9 @@
 <?php
-namespace app\modules\api\controller;
+namespace App\Modules\Api\Controller;
 
 use DMS\Tornado\Tornado;
 use DMS\Tornado\Controller;
-use app\modules\api\model as Modelo;
+use App\Modules\Api\Model\Usuario as UsuarioMod;
 
 class Usuario extends Controller
 {
@@ -14,8 +14,6 @@ class Usuario extends Controller
 	{
         parent::__construct($pApp);
 
-		$this->loadController('api|token');
-		
 		$this->_contToken = new Token($pApp);
 	}
 
@@ -37,10 +35,8 @@ class Usuario extends Controller
 		
 		if ($usrEmail == null)
 			$usrEmail = '%';
-		
-		$this->loadModel('api|usuario');
-		
-		$usuario = new Modelo\Usuario();
+
+		$usuario = new UsuarioMod();
 		$usuario->setNombre($usrNombre);
 		$usuario->setApellido($usrApellido);
 		$usuario->setEmail($usrEmail);

@@ -2,18 +2,18 @@
 <html lang="en-ES">
 <head>
 	<meta charset="UTF-8">
-	<base href='<?=URLFRIENDLY?>' />
+    <base href='<?php echo URLFRIENDLY ?>' />
 	<title> Restalecer contraseña de usuario</title>
 	<link rel="shortcut icon" type="image/x-icon" href="./public/img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./public/css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="./public/css/estilos.css" media="all" />
-	<?php $this->loadView('publico|includes/theme'); ?>
+    <?php $app->render('app/modules/Publico/View/includes/theme.tpl.php'); ?>
 </head>
 <body class="bgAcceso">
-	
-	<?php $this->loadView('publico|includes/notificaciones'); ?>
-	
-	<?php $this->loadView('publico|includes/slogan'); ?>
+
+    <?php $app->render('app/modules/Publico/View/includes/notificaciones.tpl.php'); ?>
+
+    <?php $app->render('app/modules/Publico/View/includes/slogan.tpl.php'); ?>
 	
 	<div class="pnlAcceso">
 		
@@ -74,8 +74,8 @@
 		</div>
 		
 	</div>
-	
-	<?php $this->loadView('publico|includes/footer'); ?>
+
+    <?php $app->render('app/modules/Publico/View/includes/footer.tpl.php'); ?>
 	
 	<script type="text/javascript" src="./public/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="./public/js/comun.js"></script>
